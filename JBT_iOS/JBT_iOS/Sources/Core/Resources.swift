@@ -30,4 +30,8 @@ extension UIFont {
 
         return UIFont(name: "\(familyName)-\(weightString)", size: fontSize) ?? .systemFont(ofSize: fontSize, weight: weight)
     }
+    
+    static func sokcho(size fontSize: CGFloat) -> UIFont {
+        return UIFont(name: "SokchoBadaDotum", size: fontSize) ?? .init()
+    }
 }
