@@ -110,7 +110,7 @@ class MainCategoryViewController: UIViewController {
     private var foodCollectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
             $0.scrollDirection = .vertical
-            $0.minimumLineSpacing = 18
+            $0.minimumLineSpacing = 20
             $0.minimumInteritemSpacing = 18
             $0.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         }
@@ -191,7 +191,7 @@ extension MainCategoryViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: 182.0, height: 255.0)
+        return CGSize(width: 182.0, height: 270.0)
     }
 }
 

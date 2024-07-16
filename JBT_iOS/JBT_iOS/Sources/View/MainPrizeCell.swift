@@ -59,28 +59,28 @@ extension MainPrizeCell {
         }
         
         nameLabel.snp.makeConstraints {
-            $0.top.equalTo(goodsImage.snp.bottom).offset(4)
+            $0.top.equalTo(goodsImage.snp.bottom).offset(12)
             $0.width.equalToSuperview()
             $0.centerX.equalToSuperview()
             $0.height.equalTo(12)
         }
         
         regionLabel.snp.makeConstraints {
-            $0.top.equalTo(goodsImage.snp.bottom).offset(4)
+            $0.top.equalTo(goodsImage.snp.bottom).offset(12)
             $0.width.equalToSuperview()
             $0.centerX.equalToSuperview()
             $0.height.equalTo(12)
         }
         
         infoLabel.snp.makeConstraints {
-            $0.top.equalTo(regionLabel.snp.bottom).offset(4)
+            $0.top.equalTo(regionLabel.snp.bottom).offset(6)
             $0.width.equalToSuperview()
             $0.centerX.equalToSuperview()
             $0.height.equalTo(29)
         }
         
         priceLabel.snp.makeConstraints {
-            $0.top.equalTo(infoLabel.snp.bottom).offset(4)
+            $0.top.equalTo(infoLabel.snp.bottom).offset(6)
             $0.width.equalToSuperview()
             $0.centerX.equalToSuperview()
             $0.height.equalTo(21)
