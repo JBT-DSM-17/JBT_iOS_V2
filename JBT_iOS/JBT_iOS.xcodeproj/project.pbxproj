@@ -29,6 +29,11 @@
 		D15054D72C4641C6000E58A0 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D15054CE2C4641C6000E58A0 /* Pretendard-Light.otf */; };
 		D15054DA2C4642A6000E58A0 /* JBTLoginTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054D92C4642A6000E58A0 /* JBTLoginTitleLabel.swift */; };
 		D15054DC2C4646D7000E58A0 /* JBTLoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054DB2C4646D7000E58A0 /* JBTLoginTextField.swift */; };
+		D15054E02C466337000E58A0 /* MainCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054DF2C466337000E58A0 /* MainCategoryViewController.swift */; };
+		D15054E22C46640E000E58A0 /* MainCategoryNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E12C46640E000E58A0 /* MainCategoryNavigationBar.swift */; };
+		D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */; };
+		D15054E62C4682D1000E58A0 /* MainCategoryRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */; };
+		D15054E82C46887F000E58A0 /* MainPrizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E72C46887F000E58A0 /* MainPrizeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +58,11 @@
 		D15054CE2C4641C6000E58A0 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		D15054D92C4642A6000E58A0 /* JBTLoginTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBTLoginTitleLabel.swift; sourceTree = "<group>"; };
 		D15054DB2C4646D7000E58A0 /* JBTLoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBTLoginTextField.swift; sourceTree = "<group>"; };
+		D15054DF2C466337000E58A0 /* MainCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryViewController.swift; sourceTree = "<group>"; };
+		D15054E12C46640E000E58A0 /* MainCategoryNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryNavigationBar.swift; sourceTree = "<group>"; };
+		D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRegionCell.swift; sourceTree = "<group>"; };
+		D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRegionView.swift; sourceTree = "<group>"; };
+		D15054E72C46887F000E58A0 /* MainPrizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPrizeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +158,11 @@
 			isa = PBXGroup;
 			children = (
 				D15054C12C4640B3000E58A0 /* Auth */,
+				D15054DF2C466337000E58A0 /* MainCategoryViewController.swift */,
+				D15054E72C46887F000E58A0 /* MainPrizeCell.swift */,
+				D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */,
+				D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */,
+				D15054E12C46640E000E58A0 /* MainCategoryNavigationBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,9 +298,14 @@
 			files = (
 				D15054DA2C4642A6000E58A0 /* JBTLoginTitleLabel.swift in Sources */,
 				6F63E23A2C46454200B821C6 /* JBTLoginBottomButton.swift in Sources */,
+				D15054E82C46887F000E58A0 /* MainPrizeCell.swift in Sources */,
 				D15054B42C463FFF000E58A0 /* Header.swift in Sources */,
 				D150549B2C463FA3000E58A0 /* LoginViewController.swift in Sources */,
+				D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */,
+				D15054E62C4682D1000E58A0 /* MainCategoryRegionView.swift in Sources */,
 				D15054DC2C4646D7000E58A0 /* JBTLoginTextField.swift in Sources */,
+				D15054E02C466337000E58A0 /* MainCategoryViewController.swift in Sources */,
+				D15054E22C46640E000E58A0 /* MainCategoryNavigationBar.swift in Sources */,
 				D15054972C463FA3000E58A0 /* AppDelegate.swift in Sources */,
 				D15054C42C464193000E58A0 /* Resources.swift in Sources */,
 				D15054992C463FA3000E58A0 /* SceneDelegate.swift in Sources */,
