@@ -10,20 +10,25 @@ import SnapKit
 import Then
 
 class SloganView: UIView {
+    private let backView = UIView().then {
+        $0.backgroundColor = .clear
+    }
     private let sloganLabel = UILabel().then {
         $0.text = "유통 마진 쫙 뺀 만족스러운 거래"
-        $0.font = .pretendard(size: 10, weight: .medium)
+        $0.font = .pretendard(size: 13, weight: .regular)
         $0.textColor = .white
     }
     private let logoLabel = UILabel().then {
-        $0.font = .sokcho(size: 14)
+        $0.text = "ㅈㅂㅌ"
+        $0.font = .sokcho(size: 15)
         $0.textColor = .white
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .green500
-        [ sloganLabel, logoLabel ].forEach { addSubview($0) }
+        self.backgroundColor = .green700
+        addSubview(backView)
+        [ sloganLabel, logoLabel ].forEach { backView.addSubview($0) }
     }
     
     required init?(coder: NSCoder) {
@@ -32,14 +37,19 @@ class SloganView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        backView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.verticalEdges.equalToSuperview().inset(8)
+        }
         sloganLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.left.equalTo(self.snp.centerX).offset(-86)
+            $0.left.equalToSuperview()
         }
         logoLabel.snp.makeConstraints {
-            $0.verticalEdges.equalToSuperview().inset(8)
-            $0.left.equalTo(self.snp.centerX).offset(46)
+            $0.top.equalToSuperview().inset(9)
+            $0.bottom.equalToSuperview().inset(7)
+            $0.left.equalTo(sloganLabel.snp.right).offset(8)
+            $0.right.equalToSuperview()
         }
     }
 }

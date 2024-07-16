@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F9CF2F42C465BA3000F23CA /* SokchoBadaDotum.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */; };
+		3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */; };
+		3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F72C468CF5000F23CA /* BannerView.swift */; };
+		3FD87C1B2C4657D90036A733 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD87C1A2C4657D90036A733 /* MainViewController.swift */; };
+		3FD87C1E2C4658940036A733 /* SloganView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD87C1D2C4658940036A733 /* SloganView.swift */; };
 		6F63E23A2C46454200B821C6 /* JBTLoginBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */; };
 		D15054972C463FA3000E58A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054962C463FA3000E58A0 /* AppDelegate.swift */; };
 		D15054992C463FA3000E58A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054982C463FA3000E58A0 /* SceneDelegate.swift */; };
@@ -32,6 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SokchoBadaDotum.otf; sourceTree = "<group>"; };
+		3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+addLeftImage.swift"; sourceTree = "<group>"; };
+		3F9CF2F72C468CF5000F23CA /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		3FD87C1A2C4657D90036A733 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3FD87C1D2C4658940036A733 /* SloganView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SloganView.swift; sourceTree = "<group>"; };
 		6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBTLoginBottomButton.swift; sourceTree = "<group>"; };
 		D15054932C463FA3000E58A0 /* JBT_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JBT_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15054962C463FA3000E58A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +79,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FD87C192C4657CB0036A733 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3FD87C1C2C4658650036A733 /* Component */,
+				3FD87C1A2C4657D90036A733 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3FD87C1C2C4658650036A733 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				3FD87C1D2C4658940036A733 /* SloganView.swift */,
+				3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */,
+				3F9CF2F72C468CF5000F23CA /* BannerView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		D150548A2C463FA3000E58A0 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +176,7 @@
 		D15054AF2C463FD8000E58A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3FD87C192C4657CB0036A733 /* Main */,
 				D15054C12C4640B3000E58A0 /* Auth */,
 			);
 			path = View;
@@ -179,6 +209,7 @@
 		D15054C52C4641B8000E58A0 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */,
 				D15054C82C4641C6000E58A0 /* Pretendard-Black.otf */,
 				D15054C92C4641C6000E58A0 /* Pretendard-Bold.otf */,
 				D15054CB2C4641C6000E58A0 /* Pretendard-ExtraBold.otf */,
@@ -270,6 +301,7 @@
 				D15054D52C4641C6000E58A0 /* Pretendard-SemiBold.otf in Resources */,
 				D15054D62C4641C6000E58A0 /* Pretendard-Regular.otf in Resources */,
 				D15054D02C4641C6000E58A0 /* Pretendard-Medium.otf in Resources */,
+				3F9CF2F42C465BA3000F23CA /* SokchoBadaDotum.otf in Resources */,
 				D15054D12C4641C6000E58A0 /* Pretendard-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,9 +318,13 @@
 				D15054B42C463FFF000E58A0 /* Header.swift in Sources */,
 				D150549B2C463FA3000E58A0 /* LoginViewController.swift in Sources */,
 				D15054DC2C4646D7000E58A0 /* JBTLoginTextField.swift in Sources */,
+				3FD87C1E2C4658940036A733 /* SloganView.swift in Sources */,
 				D15054972C463FA3000E58A0 /* AppDelegate.swift in Sources */,
 				D15054C42C464193000E58A0 /* Resources.swift in Sources */,
+				3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */,
 				D15054992C463FA3000E58A0 /* SceneDelegate.swift in Sources */,
+				3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */,
+				3FD87C1B2C4657D90036A733 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
