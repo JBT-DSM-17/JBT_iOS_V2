@@ -27,7 +27,7 @@ enum Header {
         }
         switch self {
         case .accessToken:
-            return ["Authorization": "Bearer " + token, "Content-Type": "application/json"]
+            return ["Authorization": token, "Content-Type": "application/json"]
         case .tokenIsEmpty:
             return ["Content-Type": "application/json"]
         }

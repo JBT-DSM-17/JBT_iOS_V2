@@ -37,7 +37,7 @@ class MainPrizeCell: UICollectionViewCell {
 extension MainPrizeCell {
     func setup(
         id: Int,
-        image: UIImage,
+        image: String,
         name: String,
         region: String,
         info: String,

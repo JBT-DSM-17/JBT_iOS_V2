@@ -1,107 +1,31 @@
 import UIKit
 import SnapKit
 import Then
+import Foundation
 
-struct GoodsModel {
-    var image: UIImage
-    var name: String
-    var region: String
-    var info: String
-    var price: String
+struct GoodsModel: Codable {
+    let items: [Item]
+}
+
+struct Item: Codable {
+    let id: Int
+    let picture: String
+    let name: String
+    let price: Int
+    let location, locationDetail, description: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, price, location, picture
+        case locationDetail = "location_detail"
+        case description
+    }
 }
 
 class MainCategoryViewController: UIViewController {
     
     let category: [String] = ["못난이", "충청남도", "충청북도", "경상남도", "경상북도", "전라남도", "전라북도", "경기도", "강원도"]
  
-    var goodsData: [GoodsModel] = [
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-    ]
-    
-    let goodsData1: [GoodsModel] = [
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-    ]
-    
-    let categoryData: [[GoodsModel]] =  [
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-        [
-           GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-       ],
-    ]
-    
-    
-    
-    let goodsData2: [GoodsModel] = [
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-        GoodsModel(image: UIImage(named: "foodDummy")!, name: "이태영", region: "전라남도", info: "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어", price: "11,500"),
-    ]
+    var goodsData: GoodsModel = GoodsModel(items: [])
                                
     let navigationBar = MainCategoryNavigationBar()
     
@@ -197,7 +121,7 @@ extension MainCategoryViewController: UICollectionViewDelegateFlowLayout {
 
 extension MainCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return goodsData.count
+        return goodsData.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -205,9 +129,9 @@ extension MainCategoryViewController: UICollectionViewDataSource {
             withReuseIdentifier: MainPrizeCell.identifier,
             for: indexPath
         ) as? MainPrizeCell
-        let model = goodsData[indexPath.row]
+        let model = goodsData.items[indexPath.row]
         print(model)
-        cell?.setup(id: 1, image: model.image, name: model.name, region: model.region, info: model.info, price: model.price)
+        cell?.setup(id: model.id, image: model.picture, name: model.name, region: model.location, info: model.description, price: model.price)
         return cell ?? UICollectionViewCell()
     }
 }

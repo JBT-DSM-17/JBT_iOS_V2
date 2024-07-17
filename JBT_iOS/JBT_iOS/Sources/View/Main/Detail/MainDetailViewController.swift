@@ -2,6 +2,30 @@ import UIKit
 import SnapKit
 import Then
 
+struct GoodsDetailModel: Codable {
+    let picture: String
+    let name: String
+    let price, otherPrice: Int
+    let location, locationDetail, description: String
+    let detail: String
+    let seller: Seller
+
+    enum CodingKeys: String, CodingKey {
+        case picture, name, price
+        case otherPrice = "other_price"
+        case location
+        case locationDetail = "location_detail"
+        case description, detail, seller
+        }
+}
+
+
+struct Seller: Codable {
+    let nickname: String
+    let introduce: String?
+}
+
+
 class MainDetailViewController: UIViewController {
     
     let naviBar = MainCategoryNavigationBar()
@@ -173,6 +197,27 @@ class MainDetailViewController: UIViewController {
     let buyButton = JBTLoginBottomButton()
     
     private var detailImageViewHeightConstraint: Constraint?
+    
+    
+    
+    init (
+        picture: String,
+        name: String,
+        price: String,
+        otherPrice: Int,
+        location: String,
+        location_detail: String,
+        description: String,
+        detail: String,
+        nickname: String,
+        introduce: String
+    ) {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
