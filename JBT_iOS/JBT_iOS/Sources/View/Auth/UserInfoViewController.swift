@@ -11,11 +11,44 @@ class UserInfoViewController: UIViewController {
     private let suggestionView = JBTSuggestionView(message: "이미 가입했다면?", buttonTitle: "로그인하기")
     private let signUpButton = JBTLoginBottomButton()
     
+    let numberLabel3 = UILabel().then {
+        $0.font = .pretendard(size: 18, weight: .semibold)
+        $0.textAlignment = .right
+    }
+    
     override func viewDidLoad() {}
+    
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.backgroundColor = .white
+        
+        suggestionView.buttonTapped = {
+//            print("Adfasdfadfs")
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+//        var attributedString = NSMutableAttributedString(string: "2/2")
+//        attributedString.addAttribute(.foregroundColor, value: UIColor.green500, range: NSRange(location: 0, length: 1))
+//        numberLabel3.textAlignment = .right
+//        // UILabel에 NSAttributedString 설정
+//        numberLabel3.attributedText = attributedString
+//        
+        let numberLabel3 = UILabel().then {
+
+            
+            $0.font = .pretendard(size: 18, weight: .semibold)
+        }
+        // UILabel의 너비 설정
+        numberLabel3.widthAnchor.constraint(equalToConstant: 1000).isActive = true // 적절한 너비 설정
+
+        // NSAttributedString 생성
+        var attributedString = NSMutableAttributedString(string: "2/2")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.green500, range: NSRange(location: 0, length: 1))
+
+        // UILabel 설정
+        numberLabel3.textAlignment = .right
+        numberLabel3.attributedText = attributedString
         
         signUpButton.buttonTitle = "회원가입"
         
@@ -24,7 +57,8 @@ class UserInfoViewController: UIViewController {
             idInputTF,
             pwInputTF,
             suggestionView,
-            signUpButton
+            signUpButton,
+            numberLabel3
         ].forEach { view.addSubview($0) }
         
         
@@ -58,6 +92,13 @@ class UserInfoViewController: UIViewController {
             $0.top.equalTo(suggestionView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(52)
+        }
+        numberLabel3.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(57.5)
+            $0.right.equalToSuperview().inset(24)
+            $0.left.equalToSuperview().inset(377)
+            $0.bottom.equalToSuperview().inset(853.5)
+            $0.width.equalTo(1000)
         }
     }
     

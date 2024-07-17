@@ -67,7 +67,7 @@ class PaymentViewController: UIViewController {
     let moneyLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textAlignment = .right
-    }
+    } 
     
     
     
