@@ -39,7 +39,7 @@ class SloganView: UIView {
         super.layoutSubviews()
         backView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.verticalEdges.equalToSuperview().inset(8)
+            $0.verticalEdges.equalToSuperview()
         }
         sloganLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
