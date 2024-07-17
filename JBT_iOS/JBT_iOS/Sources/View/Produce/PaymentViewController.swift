@@ -4,12 +4,17 @@ import Then
 
 
 class PaymentViewController: UIViewController {
+    
+    let naviBar = MainCategoryNavigationBar()
+
     private let backView = UIView().then {
         $0.backgroundColor = .green500
     }
+
     private let receiptBackView = UIView().then {
         $0.backgroundColor = .white
     }
+
     private let checkImageView = UIImageView().then {
         $0.image = UIImage(systemName: "checkmark.circle.fill")
         $0.tintColor = .green500
@@ -55,25 +60,29 @@ class PaymentViewController: UIViewController {
     let informationlabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textAlignment = .right
+        $0.textColor = UIColor.gray600
     }
     
     
     let numberLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textAlignment = .right
+        $0.textColor = UIColor.gray600
     }
     
     
     let moneyLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textAlignment = .right
-    } 
+        $0.textColor = UIColor.gray600
+    }
     
     
     
     let dayLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textAlignment = .right
+        $0.textColor = UIColor.gray600
     }
     
     
@@ -81,22 +90,42 @@ class PaymentViewController: UIViewController {
     let howLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textAlignment = .right
+        $0.textColor = UIColor.gray600
     }
     
-    public func setLabels(informationText: String, numberText: String, moneyText: String, dayText: String, howText: String) {
+    init (
+        informationText: String,
+        numberText: String,
+        moneyText: String,
+        dayText: String,
+        howText: String
+    ) {
+        super.init(nibName: nil, bundle: nil)
+        
         informationlabel.text = informationText
         numberLabel.text = numberText
         moneyLabel.text = moneyText
         dayLabel.text = dayText
         howLabel.text = howText
     }
-    
-    
+        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.isNavigationBarHidden = true
+        self.view.frame = self.view.frame.inset(by: UIEdgeInsets(top: .zero, left: 0, bottom: .zero, right: 0))
         
+        naviBar.leftButtonTapAction = {
+            print("Left button tapped")
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        naviBar.setTitle("")
+        naviBar.setLeftButtonImage(image: UIImage(systemName: "arrow.left")!)
         
         loginbutton.buttonTitle = "홈으로 가기"
         self.view.backgroundColor = .gray50
@@ -120,10 +149,14 @@ class PaymentViewController: UIViewController {
             numberLabel,
             moneyLabel,
             dayLabel,
-            howLabel
+            howLabel,
+            naviBar,
+
         ].forEach { view.addSubview($0) }
         
-        
+        naviBar.snp.makeConstraints {
+            $0.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
         
         receiptBackView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(144)
@@ -240,8 +273,5 @@ class PaymentViewController: UIViewController {
         self.loginbutton.addAction(UIAction { _ in
             print("아니 지훈아 말 좀 들어")
         }, for: .touchUpInside)
-        
-        
-        
     }
 }

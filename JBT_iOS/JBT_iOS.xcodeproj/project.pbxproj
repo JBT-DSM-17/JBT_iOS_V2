@@ -49,6 +49,7 @@
 		D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */; };
 		D15054E62C4682D1000E58A0 /* MainCategoryRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */; };
 		D15054E82C46887F000E58A0 /* MainPrizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E72C46887F000E58A0 /* MainPrizeCell.swift */; };
+		D15054ED2C47424C000E58A0 /* MainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054EC2C47424C000E58A0 /* MainDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRegionCell.swift; sourceTree = "<group>"; };
 		D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRegionView.swift; sourceTree = "<group>"; };
 		D15054E72C46887F000E58A0 /* MainPrizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPrizeCell.swift; sourceTree = "<group>"; };
+		D15054EC2C47424C000E58A0 /* MainDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		3FD87C192C4657CB0036A733 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D15054EB2C47423B000E58A0 /* Detail */,
 				D15054EA2C4741E8000E58A0 /* Category */,
 				3FD87C1C2C4658650036A733 /* Component */,
 				3FD87C1A2C4657D90036A733 /* MainViewController.swift */,
@@ -288,6 +291,14 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		D15054EB2C47423B000E58A0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D15054EC2C47424C000E58A0 /* MainDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -396,6 +407,7 @@
 				D150549B2C463FA3000E58A0 /* LoginViewController.swift in Sources */,
 				6F63E2402C46882500B821C6 /* UserInfoViewController.swift in Sources */,
 				D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */,
+				D15054ED2C47424C000E58A0 /* MainDetailViewController.swift in Sources */,
 				D15054E62C4682D1000E58A0 /* MainCategoryRegionView.swift in Sources */,
 				D15054DC2C4646D7000E58A0 /* JBTLoginTextField.swift in Sources */,
 				3FD87C1E2C4658940036A733 /* SloganView.swift in Sources */,
