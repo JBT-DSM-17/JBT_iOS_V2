@@ -22,9 +22,11 @@ class HeaderView: UICollectionReusableView {
         $0.showsHorizontalScrollIndicator = false
         $0.isScrollEnabled = false
     }
+    
     private let bannerView = UIHostingController(rootView: BannerView()).view.then {
         $0.frame = .zero
     }
+    
     private let suggestionLabel = UILabel().then {
         $0.text = "ㅈㅂㅌ이 추천하는 특산품"
         $0.font = .pretendard(size: 18, weight: .semibold)
@@ -40,19 +42,19 @@ class HeaderView: UICollectionReusableView {
         ].forEach { self.addSubview($0) }
         
         categories.bind(to: categoryCollectionView.rx.items(
-                cellIdentifier: "CategoryCell",
-                cellType: CategoryCell.self
-            )) { _, category, cell in
-                cell.setup(name: category)
-            }.disposed(by: disposeBag)
+            cellIdentifier: "CategoryCell",
+            cellType: CategoryCell.self
+        )) { _, category, cell in
+            cell.setup(name: category)
+        }.disposed(by: disposeBag)
         
         categoryCollectionView.rx.itemSelected
-            .flatMap { Observable.just(self.categories.value[$0.row]) }
+            .map { self.categories.value[$0.row] }
             .bind(to: selectedCategory)
             .disposed(by: disposeBag)
     }
     
-    required init?(coder:    NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -61,26 +63,20 @@ class HeaderView: UICollectionReusableView {
         
         categoryCollectionView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(16)
-            $0.horizontalEdges.equalToSuperview()/*.inset(24)*/
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(78)
         }
+        
         bannerView.snp.makeConstraints {
             $0.top.equalTo(categoryCollectionView.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(210)
         }
+        
         suggestionLabel.snp.makeConstraints {
             $0.top.equalTo(bannerView.snp.bottom).offset(20)
             $0.height.equalTo(21)
             $0.bottom.equalToSuperview().inset(12)
         }
     }
-}
-
-#Preview {
-    let headerView = HeaderView()
-    headerView.snp.makeConstraints {
-        $0.width.equalTo(400)
-    }
-    return headerView
 }

@@ -2,6 +2,7 @@ import UIKit
 import SnapKit
 import Then
 import Foundation
+import Moya
 import RxDataSources
 
 struct GoodsModel: Codable {
@@ -14,11 +15,13 @@ struct Item: Codable {
     let name: String
     let price: Int
     let location, locationDetail, description: String
+    let sellerName: String
 
     enum CodingKeys: String, CodingKey {
         case id, name, price, location, picture
         case locationDetail = "location_detail"
         case description
+        case sellerName = "seller_nickname"
     }
 }
 
@@ -30,6 +33,9 @@ extension GoodsModel: SectionModelType {
 }
 
 class MainCategoryViewController: UIViewController {
+    let provider = MoyaProvider<GoodsAPI>()
+    
+    var pageCategory: String = ""
     
     let category: [String] = ["못난이", "충청남도", "충청북도", "경상남도", "경상북도", "전라남도", "전라북도", "경기도", "강원도"]
  
@@ -58,6 +64,20 @@ class MainCategoryViewController: UIViewController {
         return collectionView
     }()
     
+    init (
+        category: String
+    ) {
+        super.init(nibName: nil, bundle: nil)
+
+        pageCategory = category
+        
+        getAllData()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,23 +92,24 @@ class MainCategoryViewController: UIViewController {
         self.view.frame = self.view.frame.inset(by: UIEdgeInsets(top: .zero, left: 0, bottom: .zero, right: 0))
         
         navigationBar.leftButtonTapAction = {
-            print("Left button tapped")
+            self.navigationController?.popViewController(animated: true)
         }
         
         foodCollectionView.delegate = self
         foodCollectionView.dataSource = self
         
-        navigationBar.setTitle("건어물")
+        navigationBar.setTitle(pageCategory)
         navigationBar.setTitleFont(UIFont.pretendard(size: 16, weight: .semibold))
         navigationBar.setLeftButtonImage(image: UIImage(systemName: "arrow.left")!)
         
         categoryRegionView.categoryAllShow = {
             print("전체 해제 됨")
-            self.foodCollectionView.reloadData()
+            self.getAllData()
         }
         
         categoryRegionView.categorySelected = {
-            print("\(self.category[$0]) 카테고리 클릭 됨")
+            print("\($0) 카테고리 클릭 됨")
+            self.getCategoryData(categories: $0)
             self.foodCollectionView.reloadData()
         }
     }
@@ -112,6 +133,49 @@ class MainCategoryViewController: UIViewController {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaInsets)
         }
+    }
+    
+    func getAllData() {
+        provider.request(.goodsCategory(category: pageCategory, location: nil, isBad: false), completion: { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 200:
+                    if let data = try? JSONDecoder().decode(GoodsModel.self, from: result.data) {
+                        self.goodsData = data
+                        self.foodCollectionView.reloadData()
+                    } else {
+                        print("goods json decode fail")
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        })
+    }
+    
+    func getCategoryData(categories: [String]) {
+        let isBad = categories.contains("못난이")
+        provider.request(.goodsCategory(category: pageCategory, location: categories, isBad: isBad), completion: { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 200:
+                    if let data = try? JSONDecoder().decode(GoodsModel.self, from: result.data) {
+                        self.goodsData = data
+                        self.foodCollectionView.reloadData()
+                    } else {
+                        print("goods json decode fail")
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        })
     }
 }
 
@@ -137,8 +201,13 @@ extension MainCategoryViewController: UICollectionViewDataSource {
         ) as? MainPrizeCell
         let model = goodsData.items[indexPath.row]
         print(model)
-//        cell?.setup(id: model.id, image: model.picture, name: model.name, region: model.location, info: model.description, price: model.price)
+        cell?.setup(id: model.id, image: model.picture, name: model.name, sellerName: model.sellerName, region: model.location, info: model.description, price: model.price)
         return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = goodsData.items[indexPath.row]
+        self.navigationController?.pushViewController(MainDetailViewController(id: model.id), animated: true)
     }
 }
 

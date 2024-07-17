@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
                         DispatchQueue.main.async {
                             Token.accessToken = data.accessToken
                             print(Token.accessToken)
-                            self.navigationController?.pushViewController(MainDetailViewController(picture: "", name: "", price: "", otherPrice: 1234, location: "", location_detail: "", description: "", detail: "", nickname: "", introduce: ""), animated: true)
+                            self.navigationController?.pushViewController(MainViewController(), animated: true)
                         }
                     } else {
                         print("auth json decode fail")

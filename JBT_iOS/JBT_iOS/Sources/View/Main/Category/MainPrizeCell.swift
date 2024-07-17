@@ -8,8 +8,9 @@ class MainPrizeCell: UICollectionViewCell {
     
     public var cellId: Int = 0
     
-    let goodsImage = UIImageView().then {
+    var goodsImage = UIImageView().then {
         $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     }
     
     let nameLabel = UILabel().then {
@@ -39,16 +40,22 @@ extension MainPrizeCell {
         id: Int,
         image: String,
         name: String,
+        sellerName: String,
         region: String,
         info: String,
-        price: String
+        price: Int
     ) {
         cellId = id
-//        goodsImage.image = image
-        nameLabel.text = name
+        let thumbnail = URL(string: image)
+        let defaultImage = URL(string: "https://roout.co.kr/m/p/u/ga2ZC53/c/Jr4DeQNxB7p/i/1N9m2wovk8X.jpg?w=1080")
+        goodsImage.imageFrom(url: (thumbnail ?? defaultImage)!)
+        nameLabel.text = sellerName
         regionLabel.text = region
         infoLabel.text = info
-        priceLabel.text = price
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let formattedPrice = numberFormatter.string(from: NSNumber(value: price)) ?? "\(price)"
+        priceLabel.text = "\(formattedPrice)원"
         layout()
     }
     

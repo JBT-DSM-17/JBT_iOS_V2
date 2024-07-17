@@ -6,10 +6,10 @@ class MainCategoryRegionView: UIView {
     
     let category: [String] = ["못난이", "충청남도", "충청북도", "경상남도", "경상북도", "전라남도", "전라북도", "경기도", "강원도"]
     
-    public var categorySelected: ((Int) -> Void)?
+    public var categorySelected: (([String]) -> Void)?
     public var categoryAllShow: (() -> Void)?
     
-    private var selectedIndexPath: IndexPath?
+    private var selectedIndexPaths: Set<IndexPath> = []
                                       
     private var categoryCollectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
@@ -26,6 +26,7 @@ class MainCategoryRegionView: UIView {
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
             $0.backgroundColor = .white
+            $0.allowsMultipleSelection = true // Enable multiple selection
         }
         return collectionView
     }()
@@ -86,28 +87,27 @@ extension MainCategoryRegionView: UICollectionViewDataSource {
         cell?.setup(text: model)
         return cell ?? UICollectionViewCell()
     }
-       
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-           if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
-               collectionView.deselectItem(at: indexPath, animated: true)
-               self.collectionView(collectionView, didDeselectItemAt: indexPath)
-               self.selectedIndexPath = nil
-               categoryAllShow?()
-           } else {
-               if let selectedIndexPath = selectedIndexPath {
-                   collectionView.deselectItem(at: selectedIndexPath, animated: true)
-                   self.collectionView(collectionView, didDeselectItemAt: selectedIndexPath)
-               }
-               self.selectedIndexPath = indexPath
-               let cell = collectionView.cellForItem(at: indexPath) as? MainCategoryRegionCell
-               cell?.isSelected = true
-               categorySelected?(indexPath.row)
-           }
-       }
-       
-       func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-           let cell = collectionView.cellForItem(at: indexPath) as? MainCategoryRegionCell
-           cell?.isSelected = false
-       }
+        selectedIndexPaths.insert(indexPath)
+        let cell = collectionView.cellForItem(at: indexPath) as? MainCategoryRegionCell
+        cell?.isSelected = true
+        notifySelectionChanged()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        selectedIndexPaths.remove(indexPath)
+        let cell = collectionView.cellForItem(at: indexPath) as? MainCategoryRegionCell
+        cell?.isSelected = false
+        notifySelectionChanged()
+    }
+    
+    private func notifySelectionChanged() {
+        let selectedIndexes = selectedIndexPaths.map { category[$0.row] }
+        if selectedIndexes.isEmpty {
+            categoryAllShow?()
+        } else {
+            categorySelected?(selectedIndexes)
+        }
+    }
 }
-

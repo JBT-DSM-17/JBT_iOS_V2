@@ -14,6 +14,9 @@ class MainViewController: UIViewController {
         $0.tintColor = .gray400
         $0.backgroundColor = .clear
     }
+    
+    public var searchId: [Int] = []
+
     private let searchTextField = UITextField().then {
         $0.placeholder = "상품 검색"
         $0.backgroundColor = .gray50
@@ -55,7 +58,7 @@ class MainViewController: UIViewController {
             $0.minimumLineSpacing = 20
             $0.minimumInteritemSpacing = 18
             $0.itemSize = CGSize(width: 182, height: 270)
-            $0.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+            $0.sectionInset = UIEdgeInsets(top: 20, left: 24, bottom: 0, right: 24)
         }
     ).then {
         $0.register(MainPrizeCell.self, forCellWithReuseIdentifier: "SearchCV")
@@ -80,7 +83,6 @@ class MainViewController: UIViewController {
         
         bind()
     }
-    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -109,8 +111,9 @@ class MainViewController: UIViewController {
             $0.right.equalToSuperview().inset(10)
             $0.bottom.equalToSuperview().inset(20)
         }
+    
         searchCV.snp.makeConstraints {
-            $0.top.equalTo(searchTextField.snp.bottom).offset(28)
+            $0.top.equalTo(searchTextField.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
@@ -118,35 +121,46 @@ class MainViewController: UIViewController {
     
     func bind() {
         let searchResult = PublishRelay<[Item]>()
+        self.viewModel.getAllproductData()
         
         viewModel.productsData
             .bind(to: entireCV.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
         
         entireCV.rx.itemSelected
-            .subscribe(onNext: { idxPath in
-                print(idxPath)
+            .subscribe(onNext: { [self] idxPath in
+                print("cell ID : \(viewModel.productsData.value[0].items[idxPath[1]].id)")
+                self.navigationController?.pushViewController(MainDetailViewController(id: viewModel.productsData.value[0].items[idxPath[1]].id), animated: true)
             }).disposed(by: disposeBag)
         
         searchTextField.rx.text.orEmpty
             .subscribe(with: self, onNext: { owner, text in
                 owner.searchCV.isHidden = text.count < 1 ? true : false
+                owner.searchId = []
                 let data = owner.viewModel.productsData.value[0].items
-                Observable.just(data.filter { $0.description.contains(text) })
+                Observable.just(data.filter { $0.name.contains(text) })
                     .bind(to: searchResult)
                     .disposed(by: owner.disposeBag)
             }).disposed(by: disposeBag)
+        
+        viewModel.selectedCategory
+            .distinctUntilChanged()
+            .subscribe(onNext: { category in
+                self.navigationController?.pushViewController(MainCategoryViewController(category: category), animated: true)
+            }).disposed(by: disposeBag)
+        
         
         searchResult.bind(to: searchCV.rx.items(
             cellIdentifier: "SearchCV",
             cellType: MainPrizeCell.self
         )) { idx, data, cell in
-            cell.setup(id: data.id, image: "", name: data.name, region: data.location, info: data.description, price: "15,600")
+            cell.setup(id: data.id, image: data.picture, name: data.name, sellerName: data.sellerName, region: data.location, info: data.name, price: data.price)
+            self.searchId.append(cell.cellId)
         }.disposed(by: disposeBag)
-        
+
         searchCV.rx.itemSelected
             .subscribe(onNext: { idxPath in
-                print(idxPath)
+                self.navigationController?.pushViewController(MainDetailViewController(id: self.searchId[idxPath[1]]), animated: true)
             }).disposed(by: disposeBag)
     }
     
@@ -159,9 +173,4 @@ class MainViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = false
     }
-}
-
-#Preview {
-    let vc = MainViewController()
-    return vc
 }

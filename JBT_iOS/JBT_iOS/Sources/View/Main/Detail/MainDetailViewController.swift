@@ -1,6 +1,7 @@
 import UIKit
 import SnapKit
 import Then
+import Moya
 
 struct GoodsDetailModel: Codable {
     let picture: String
@@ -9,14 +10,14 @@ struct GoodsDetailModel: Codable {
     let location, locationDetail, description: String
     let detail: String
     let seller: Seller
-
+    
     enum CodingKeys: String, CodingKey {
         case picture, name, price
         case otherPrice = "other_price"
         case location
         case locationDetail = "location_detail"
         case description, detail, seller
-        }
+    }
 }
 
 
@@ -28,6 +29,8 @@ struct Seller: Codable {
 
 class MainDetailViewController: UIViewController {
     
+    private let provider = MoyaProvider<GoodsAPI>()
+    
     let naviBar = MainCategoryNavigationBar()
     
     private let scrollView = UIScrollView().then {
@@ -38,7 +41,7 @@ class MainDetailViewController: UIViewController {
         $0.axis = .vertical
     }
     
-    private let mainImageView = UIImageView().then {
+    private var mainImageView = UIImageView().then {
         $0.image = UIImage(named: "detailFoodDummy")
     }
     
@@ -60,7 +63,7 @@ class MainDetailViewController: UIViewController {
         $0.axis = .vertical
     }
     
-    let nameLabel = UILabel().then {
+    var nameLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 16, weight: .semibold)
         $0.text = "이태영"
         $0.textAlignment = .left
@@ -201,18 +204,11 @@ class MainDetailViewController: UIViewController {
     
     
     init (
-        picture: String,
-        name: String,
-        price: String,
-        otherPrice: Int,
-        location: String,
-        location_detail: String,
-        description: String,
-        detail: String,
-        nickname: String,
-        introduce: String
+        id: Int
     ) {
         super.init(nibName: nil, bundle: nil)
+        
+        getDetailData(id: id)
     }
     
     required init?(coder: NSCoder) {
@@ -241,7 +237,7 @@ class MainDetailViewController: UIViewController {
         self.view.frame = self.view.frame.inset(by: UIEdgeInsets(top: .zero, left: 0, bottom: .zero, right: 0))
         
         naviBar.leftButtonTapAction = {
-            print("Left button tapped")
+            self.navigationController?.popViewController(animated: true)
         }
         
         naviBar.setTitle("")
@@ -253,6 +249,43 @@ class MainDetailViewController: UIViewController {
     @objc func buyButtonTapped() {
         self.navigationController?.pushViewController(PaymentViewController(informationText: infoLabel.text!, numberText: "4개", moneyText: "11,500원", dayText: "2024-07-17  11:57", howText: "신용카드"), animated: true)
     }
+    
+    func getDetailData(id: Int) {
+        provider.request(.goodsDetail(id: id), completion: {  res in
+            switch res {
+        case .success(let result):
+            switch result.statusCode {
+            case 200:
+                if let data = try? JSONDecoder().decode(GoodsDetailModel.self, from: result.data) {
+                    let thumbnail = URL(string: data.picture)
+                    let defaultImage = URL(string: "https://roout.co.kr/m/p/u/ga2ZC53/c/Jr4DeQNxB7p/i/1N9m2wovk8X.jpg?w=1080")
+                    self.mainImageView.imageFrom(url: (thumbnail ?? defaultImage)!)
+                    self.nameLabel.text = data.seller.nickname
+                    self.regionLabel.text = data.location
+                    self.infoLabel.text = data.name
+                    
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.numberStyle = .decimal
+                    let formattedPrice = numberFormatter.string(from: NSNumber(value: data.otherPrice)) ?? "\(data.otherPrice)"
+                    self.infoLabel2.text = "타 플랫폼 최저가 \(formattedPrice)원"
+                    let formattedPrice1 = numberFormatter.string(from: NSNumber(value: data.price)) ?? "\(data.price)"
+                    self.priceLabel.text = "\(formattedPrice1)원"
+                    self.realRegionLabel.text = data.locationDetail
+                    self.sellerInfoLabel.text = "\(data.seller.nickname) \(data.location)"
+                    self.sellerInfoTextLabel.text = data.seller.introduce
+                    
+                } else {
+                    print("goods json decode fail")
+                }
+            default:
+                print(result.statusCode)
+            }
+        case .failure(let err):
+            print("\(err.localizedDescription)")
+        }
+        })
+    }
+    
     
     func layout() {
         [naviBar, scrollView, buttonBackView].forEach { view.addSubview($0) }
