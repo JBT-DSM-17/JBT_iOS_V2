@@ -11,21 +11,28 @@ class JBTLoginBottomButton: UIButton {
     
     private let backView = UIView().then {
         $0.backgroundColor = .clear
+        $0.isUserInteractionEnabled = false
     }
     private let buttonTitleLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 16, weight: .semibold)
         $0.textColor = .white
+        $0.isUserInteractionEnabled = false
     }
     
     private let arrowImageView = UIImageView().then {
         $0.image = UIImage(systemName: "arrow.right")
         $0.tintColor = .white
+        $0.isUserInteractionEnabled = false
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     
-        self.backgroundColor = .green
+        self.backgroundColor = UIColor.green500
+        self.layer.cornerRadius = 8
+        
+    
+    
         
         addSubview(backView)
         
@@ -58,8 +65,6 @@ class JBTLoginBottomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-
 
 #Preview {
     let loginButton = JBTLoginBottomButton()

@@ -1,7 +1,7 @@
 import UIKit
-
 import SnapKit
 import Then
+
 
 class JBTLoginTitleLabel: UILabel {
     let label = UILabel().then {

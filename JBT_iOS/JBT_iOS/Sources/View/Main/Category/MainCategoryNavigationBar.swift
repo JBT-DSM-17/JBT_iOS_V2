@@ -6,7 +6,9 @@ class MainCategoryNavigationBar: UIView {
 
     public var leftButtonTapAction: (() -> Void)?
 
-    private let leftButton = UIButton()
+    private let leftButton = UIButton().then {
+        $0.tintColor = UIColor.black
+    }
     private let titleLabel = UILabel()
 
     private lazy var leftItemsStackView = UIStackView(arrangedSubviews: [leftButton]).then {

@@ -207,7 +207,7 @@ extension MainCategoryViewController: UICollectionViewDataSource {
         ) as? MainPrizeCell
         let model = goodsData[indexPath.row]
         print(model)
-        cell?.setup(image: model.image, name: model.name, region: model.region, info: model.info, price: model.price)
+        cell?.setup(id: 1, image: model.image, name: model.name, region: model.region, info: model.info, price: model.price)
         return cell ?? UICollectionViewCell()
     }
 }
