@@ -11,22 +11,19 @@
 		3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */; };
 		3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F72C468CF5000F23CA /* BannerView.swift */; };
 		3F9CF2FA2C46FEED000F23CA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F92C46FEED000F23CA /* MainViewModel.swift */; };
-		3F9CF2FD2C47032A000F23CA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9CF2FC2C47032A000F23CA /* RxCocoa */; };
-		3F9CF2FF2C47032A000F23CA /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9CF2FE2C47032A000F23CA /* RxRelay */; };
-		3F9CF3012C4703C4000F23CA /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF3002C4703C4000F23CA /* CategoryCell.swift */; };
 		3F9CF3032C471BB7000F23CA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF3022C471BB7000F23CA /* HeaderView.swift */; };
-		3F9CF3062C475269000F23CA /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9CF3052C475269000F23CA /* RxDataSources */; };
+		3F9CF3062C475269000F23CA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		3F9CF3082C47538D000F23CA /* MainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF3072C47538D000F23CA /* MainSection.swift */; };
+		3F9CF30B2C47AF28000F23CA /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9CF30A2C47AF28000F23CA /* Differentiator */; };
+		3F9CF30D2C47AF28000F23CA /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9CF30C2C47AF28000F23CA /* RxDataSources */; };
 		3FD87C1B2C4657D90036A733 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD87C1A2C4657D90036A733 /* MainViewController.swift */; };
 		3FD87C1E2C4658940036A733 /* SloganView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD87C1D2C4658940036A733 /* SloganView.swift */; };
 		6F63E23A2C46454200B821C6 /* JBTLoginBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */; };
-		6F63E23C2C465DCB00B821C6 /* JBTSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23B2C465DCB00B821C6 /* JBTSuggestionView.swift */; };
-		6F63E23E2C4679AD00B821C6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23D2C4679AD00B821C6 /* SignupViewController.swift */; };
 		6F63E2402C46882500B821C6 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23F2C46882500B821C6 /* UserInfoViewController.swift */; };
-		6F63E2452C46B2E400B821C6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6F63E2442C46B2E400B821C6 /* RxCocoa */; };
-		6F63E2472C46B2E400B821C6 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6F63E2462C46B2E400B821C6 /* RxRelay */; };
-		6F63E24A2C46B40700B821C6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6F63E2492C46B40700B821C6 /* Moya */; };
-		6F63E24C2C46B40700B821C6 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6F63E24B2C46B40700B821C6 /* RxMoya */; };
+		6F63E2452C46B2E400B821C6 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6F63E2472C46B2E400B821C6 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6F63E24A2C46B40700B821C6 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6F63E24C2C46B40700B821C6 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6F63E24F2C46B43400B821C6 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E24E2C46B43400B821C6 /* AuthAPI.swift */; };
 		6F63E2512C46B43C00B821C6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E2502C46B43C00B821C6 /* AuthService.swift */; };
 		6F63E2542C46BBB200B821C6 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E2532C46BBB200B821C6 /* PaymentViewController.swift */; };
@@ -109,13 +106,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F63E2472C46B2E400B821C6 /* RxRelay in Frameworks */,
+				6F63E2472C46B2E400B821C6 /* (null) in Frameworks */,
 				D15054B72C464038000E58A0 /* SnapKit in Frameworks */,
-				6F63E24A2C46B40700B821C6 /* Moya in Frameworks */,
+				6F63E24A2C46B40700B821C6 /* (null) in Frameworks */,
+				3F9CF30D2C47AF28000F23CA /* RxDataSources in Frameworks */,
 				D15054BA2C464051000E58A0 /* Then in Frameworks */,
-				3F9CF3062C475269000F23CA /* RxDataSources in Frameworks */,
-				6F63E24C2C46B40700B821C6 /* RxMoya in Frameworks */,
-				6F63E2452C46B2E400B821C6 /* RxCocoa in Frameworks */,
+				3F9CF3062C475269000F23CA /* (null) in Frameworks */,
+				6F63E24C2C46B40700B821C6 /* (null) in Frameworks */,
+				6F63E2452C46B2E400B821C6 /* (null) in Frameworks */,
+				3F9CF30B2C47AF28000F23CA /* Differentiator in Frameworks */,
 				D15054C02C4640A1000E58A0 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,23 +122,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6F63E24D2C46B41D00B821C6 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				6F63E24E2C46B43400B821C6 /* AuthAPI.swift */,
-				6F63E2502C46B43C00B821C6 /* AuthService.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		6F63E2522C46BB3700B821C6 /* Produce */ = {
-			isa = PBXGroup;
-			children = (
-				6F63E2532C46BBB200B821C6 /* PaymentViewController.swift */,
-			);
-			path = Produce;
-			sourceTree = "<group>";
-		};
 		3FD87C192C4657CB0036A733 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +145,23 @@
 				3F9CF3072C47538D000F23CA /* MainSection.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		6F63E24D2C46B41D00B821C6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6F63E24E2C46B43400B821C6 /* AuthAPI.swift */,
+				6F63E2502C46B43C00B821C6 /* AuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		6F63E2522C46BB3700B821C6 /* Produce */ = {
+			isa = PBXGroup;
+			children = (
+				6F63E2532C46BBB200B821C6 /* PaymentViewController.swift */,
+			);
+			path = Produce;
 			sourceTree = "<group>";
 		};
 		D150548A2C463FA3000E58A0 = {
@@ -335,6 +334,8 @@
 				D15054B62C464038000E58A0 /* SnapKit */,
 				D15054B92C464051000E58A0 /* Then */,
 				D15054BF2C4640A1000E58A0 /* SwiftKeychainWrapper */,
+				3F9CF30A2C47AF28000F23CA /* Differentiator */,
+				3F9CF30C2C47AF28000F23CA /* RxDataSources */,
 			);
 			productName = JBT_iOS;
 			productReference = D15054932C463FA3000E58A0 /* JBT_iOS.app */;
@@ -368,6 +369,8 @@
 				D15054B52C464038000E58A0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D15054B82C464051000E58A0 /* XCRemoteSwiftPackageReference "Then" */,
 				D15054BE2C4640A1000E58A0 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				3F9CF30E2C47AF33000F23CA /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = D15054942C463FA3000E58A0 /* Products */;
 			projectDirPath = "";
@@ -646,6 +649,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		3F9CF30E2C47AF33000F23CA /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
 		D15054B52C464038000E58A0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -673,6 +692,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F9CF30A2C47AF28000F23CA /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		3F9CF30C2C47AF28000F23CA /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		D15054B62C464038000E58A0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D15054B52C464038000E58A0 /* XCRemoteSwiftPackageReference "SnapKit" */;
