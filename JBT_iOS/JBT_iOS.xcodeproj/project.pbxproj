@@ -10,16 +10,20 @@
 		3F9CF2F42C465BA3000F23CA /* SokchoBadaDotum.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */; };
 		3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */; };
 		3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F72C468CF5000F23CA /* BannerView.swift */; };
+		3F9CF2FA2C46FEED000F23CA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F92C46FEED000F23CA /* MainViewModel.swift */; };
+		3F9CF3032C471BB7000F23CA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF3022C471BB7000F23CA /* HeaderView.swift */; };
+		3F9CF3062C475269000F23CA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		3F9CF3082C47538D000F23CA /* MainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF3072C47538D000F23CA /* MainSection.swift */; };
+		3F9CF30B2C47AF28000F23CA /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9CF30A2C47AF28000F23CA /* Differentiator */; };
+		3F9CF30D2C47AF28000F23CA /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F9CF30C2C47AF28000F23CA /* RxDataSources */; };
 		3FD87C1B2C4657D90036A733 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD87C1A2C4657D90036A733 /* MainViewController.swift */; };
 		3FD87C1E2C4658940036A733 /* SloganView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD87C1D2C4658940036A733 /* SloganView.swift */; };
 		6F63E23A2C46454200B821C6 /* JBTLoginBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */; };
-		6F63E23C2C465DCB00B821C6 /* JBTSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23B2C465DCB00B821C6 /* JBTSuggestionView.swift */; };
-		6F63E23E2C4679AD00B821C6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23D2C4679AD00B821C6 /* SignupViewController.swift */; };
 		6F63E2402C46882500B821C6 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23F2C46882500B821C6 /* UserInfoViewController.swift */; };
-		6F63E2452C46B2E400B821C6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6F63E2442C46B2E400B821C6 /* RxCocoa */; };
-		6F63E2472C46B2E400B821C6 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6F63E2462C46B2E400B821C6 /* RxRelay */; };
-		6F63E24A2C46B40700B821C6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6F63E2492C46B40700B821C6 /* Moya */; };
-		6F63E24C2C46B40700B821C6 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6F63E24B2C46B40700B821C6 /* RxMoya */; };
+		6F63E2452C46B2E400B821C6 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6F63E2472C46B2E400B821C6 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6F63E24A2C46B40700B821C6 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6F63E24C2C46B40700B821C6 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		6F63E24F2C46B43400B821C6 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E24E2C46B43400B821C6 /* AuthAPI.swift */; };
 		6F63E2542C46BBB200B821C6 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E2532C46BBB200B821C6 /* PaymentViewController.swift */; };
 		D15054972C463FA3000E58A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054962C463FA3000E58A0 /* AppDelegate.swift */; };
@@ -56,6 +60,10 @@
 		3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SokchoBadaDotum.otf; sourceTree = "<group>"; };
 		3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+addLeftImage.swift"; sourceTree = "<group>"; };
 		3F9CF2F72C468CF5000F23CA /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		3F9CF2F92C46FEED000F23CA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3F9CF3002C4703C4000F23CA /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		3F9CF3022C471BB7000F23CA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		3F9CF3072C47538D000F23CA /* MainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSection.swift; sourceTree = "<group>"; };
 		3FD87C1A2C4657D90036A733 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3FD87C1D2C4658940036A733 /* SloganView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SloganView.swift; sourceTree = "<group>"; };
 		6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBTLoginBottomButton.swift; sourceTree = "<group>"; };
@@ -98,12 +106,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F63E2472C46B2E400B821C6 /* RxRelay in Frameworks */,
+				6F63E2472C46B2E400B821C6 /* (null) in Frameworks */,
 				D15054B72C464038000E58A0 /* SnapKit in Frameworks */,
-				6F63E24A2C46B40700B821C6 /* Moya in Frameworks */,
+				6F63E24A2C46B40700B821C6 /* (null) in Frameworks */,
+				3F9CF30D2C47AF28000F23CA /* RxDataSources in Frameworks */,
 				D15054BA2C464051000E58A0 /* Then in Frameworks */,
-				6F63E24C2C46B40700B821C6 /* RxMoya in Frameworks */,
-				6F63E2452C46B2E400B821C6 /* RxCocoa in Frameworks */,
+				3F9CF3062C475269000F23CA /* (null) in Frameworks */,
+				6F63E24C2C46B40700B821C6 /* (null) in Frameworks */,
+				6F63E2452C46B2E400B821C6 /* (null) in Frameworks */,
+				3F9CF30B2C47AF28000F23CA /* Differentiator in Frameworks */,
 				D15054C02C4640A1000E58A0 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +129,7 @@
 				D15054EA2C4741E8000E58A0 /* Category */,
 				3FD87C1C2C4658650036A733 /* Component */,
 				3FD87C1A2C4657D90036A733 /* MainViewController.swift */,
+				3F9CF2F92C46FEED000F23CA /* MainViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -128,6 +140,9 @@
 				3FD87C1D2C4658940036A733 /* SloganView.swift */,
 				3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */,
 				3F9CF2F72C468CF5000F23CA /* BannerView.swift */,
+				3F9CF3002C4703C4000F23CA /* CategoryCell.swift */,
+				3F9CF3022C471BB7000F23CA /* HeaderView.swift */,
+				3F9CF3072C47538D000F23CA /* MainSection.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -319,10 +334,8 @@
 				D15054B62C464038000E58A0 /* SnapKit */,
 				D15054B92C464051000E58A0 /* Then */,
 				D15054BF2C4640A1000E58A0 /* SwiftKeychainWrapper */,
-				6F63E2442C46B2E400B821C6 /* RxCocoa */,
-				6F63E2462C46B2E400B821C6 /* RxRelay */,
-				6F63E2492C46B40700B821C6 /* Moya */,
-				6F63E24B2C46B40700B821C6 /* RxMoya */,
+				3F9CF30A2C47AF28000F23CA /* Differentiator */,
+				3F9CF30C2C47AF28000F23CA /* RxDataSources */,
 			);
 			productName = JBT_iOS;
 			productReference = D15054932C463FA3000E58A0 /* JBT_iOS.app */;
@@ -356,8 +369,8 @@
 				D15054B52C464038000E58A0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D15054B82C464051000E58A0 /* XCRemoteSwiftPackageReference "Then" */,
 				D15054BE2C4640A1000E58A0 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
-				6F63E2432C46B2E400B821C6 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				6F63E2482C46B40700B821C6 /* XCRemoteSwiftPackageReference "Moya" */,
+				3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				3F9CF30E2C47AF33000F23CA /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = D15054942C463FA3000E58A0 /* Products */;
 			projectDirPath = "";
@@ -396,11 +409,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D15054DA2C4642A6000E58A0 /* JBTLoginTitleLabel.swift in Sources */,
-				6F63E23C2C465DCB00B821C6 /* JBTSuggestionView.swift in Sources */,
-				6F63E23E2C4679AD00B821C6 /* SignupViewController.swift in Sources */,
 				6F63E23A2C46454200B821C6 /* JBTLoginBottomButton.swift in Sources */,
 				6F63E24F2C46B43400B821C6 /* AuthAPI.swift in Sources */,
 				D15054E82C46887F000E58A0 /* MainPrizeCell.swift in Sources */,
+				3F9CF3082C47538D000F23CA /* MainSection.swift in Sources */,
 				D15054B42C463FFF000E58A0 /* Header.swift in Sources */,
 				6F63E2542C46BBB200B821C6 /* PaymentViewController.swift in Sources */,
 				D150549B2C463FA3000E58A0 /* LoginViewController.swift in Sources */,
@@ -416,9 +428,11 @@
 				D15054972C463FA3000E58A0 /* AppDelegate.swift in Sources */,
 				D15054C42C464193000E58A0 /* Resources.swift in Sources */,
 				3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */,
+				3F9CF3032C471BB7000F23CA /* HeaderView.swift in Sources */,
 				D15054992C463FA3000E58A0 /* SceneDelegate.swift in Sources */,
 				3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */,
 				3FD87C1B2C4657D90036A733 /* MainViewController.swift in Sources */,
+				3F9CF2FA2C46FEED000F23CA /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +576,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 92YDTRVDUA;
+				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JBT_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -590,7 +604,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 92YDTRVDUA;
+				DEVELOPMENT_TEAM = Z25H7B85Z8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JBT_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -635,20 +649,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6F63E2432C46B2E400B821C6 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		3F9CF30E2C47AF33000F23CA /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.7.0;
-			};
-		};
-		6F63E2482C46B40700B821C6 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.3;
+				minimumVersion = 6.7.1;
 			};
 		};
 		D15054B52C464038000E58A0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -678,25 +692,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6F63E2442C46B2E400B821C6 /* RxCocoa */ = {
+		3F9CF30A2C47AF28000F23CA /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6F63E2432C46B2E400B821C6 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
+			package = 3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
 		};
-		6F63E2462C46B2E400B821C6 /* RxRelay */ = {
+		3F9CF30C2C47AF28000F23CA /* RxDataSources */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6F63E2432C46B2E400B821C6 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		6F63E2492C46B40700B821C6 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6F63E2482C46B40700B821C6 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		6F63E24B2C46B40700B821C6 /* RxMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6F63E2482C46B40700B821C6 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = RxMoya;
+			package = 3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 		D15054B62C464038000E58A0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
