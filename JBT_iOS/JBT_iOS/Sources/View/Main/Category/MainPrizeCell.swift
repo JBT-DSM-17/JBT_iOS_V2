@@ -6,6 +6,8 @@ import Then
 class MainPrizeCell: UICollectionViewCell {
     static let identifier: String = "MainPrizeCell"
     
+    public var cellId: Int = 0
+    
     let goodsImage = UIImageView().then {
         $0.layer.cornerRadius = 8
     }
@@ -34,13 +36,14 @@ class MainPrizeCell: UICollectionViewCell {
 
 extension MainPrizeCell {
     func setup(
+        id: Int,
         image: UIImage,
         name: String,
         region: String,
         info: String,
         price: String
-        
     ) {
+        cellId = id
         goodsImage.image = image
         nameLabel.text = name
         regionLabel.text = region
