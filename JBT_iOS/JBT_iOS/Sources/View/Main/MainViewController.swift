@@ -7,7 +7,7 @@ import RxCocoa
 
 class MainViewController: UIViewController {
     private let disposeBag = DisposeBag()
-    private let viewModel = MainViewModel()
+    public let viewModel = MainViewModel()
     private let sloganView = SloganView()
     private let searchImageView = UIImageView().then {
         $0.image = UIImage(systemName: "magnifyingglass")
@@ -144,7 +144,6 @@ class MainViewController: UIViewController {
             }).disposed(by: disposeBag)
         
         viewModel.selectedCategory
-            .distinctUntilChanged()
             .subscribe(onNext: { category in
                 self.navigationController?.pushViewController(MainCategoryViewController(category: category), animated: true)
             }).disposed(by: disposeBag)

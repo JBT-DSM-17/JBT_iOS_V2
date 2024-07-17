@@ -32,6 +32,8 @@ class HeaderView: UICollectionReusableView {
         $0.font = .pretendard(size: 18, weight: .semibold)
     }
     
+    public var isConfigured = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -40,18 +42,6 @@ class HeaderView: UICollectionReusableView {
             bannerView,
             suggestionLabel
         ].forEach { self.addSubview($0) }
-        
-        categories.bind(to: categoryCollectionView.rx.items(
-            cellIdentifier: "CategoryCell",
-            cellType: CategoryCell.self
-        )) { _, category, cell in
-            cell.setup(name: category)
-        }.disposed(by: disposeBag)
-        
-        categoryCollectionView.rx.itemSelected
-            .map { self.categories.value[$0.row] }
-            .bind(to: selectedCategory)
-            .disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
@@ -78,5 +68,22 @@ class HeaderView: UICollectionReusableView {
             $0.height.equalTo(21)
             $0.bottom.equalToSuperview().inset(12)
         }
+    }
+    
+    func configure() {
+        guard !isConfigured else { return }
+        isConfigured = true
+        
+        categories.bind(to: categoryCollectionView.rx.items(
+            cellIdentifier: "CategoryCell",
+            cellType: CategoryCell.self
+        )) { _, category, cell in
+            cell.setup(name: category)
+        }.disposed(by: disposeBag)
+        
+        categoryCollectionView.rx.itemSelected
+            .map { self.categories.value[$0.row] }
+            .bind(to: selectedCategory)
+            .disposed(by: disposeBag)
     }
 }

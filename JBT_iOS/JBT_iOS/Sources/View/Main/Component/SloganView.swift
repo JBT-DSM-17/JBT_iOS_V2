@@ -11,22 +11,21 @@ import Then
 
 class SloganView: UIView {
     private let backView = UIView().then {
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .white
     }
     private let sloganLabel = UILabel().then {
         $0.text = "유통 마진 쫙 뺀 만족스러운 거래"
         $0.font = .pretendard(size: 13, weight: .regular)
-        $0.textColor = .white
+        $0.textColor = .black
     }
     private let logoLabel = UILabel().then {
         $0.text = "ㅈㅂㅌ"
         $0.font = .sokcho(size: 15)
-        $0.textColor = .white
+        $0.textColor = UIColor.green500
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .green700
         addSubview(backView)
         [ sloganLabel, logoLabel ].forEach { backView.addSubview($0) }
     }
