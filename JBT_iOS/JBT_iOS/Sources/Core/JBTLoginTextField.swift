@@ -13,7 +13,7 @@ enum TFType {
         case .id:
             return "아이디"
         case .name:
-            return "이름"
+            return "닉네임"
         case .pw:
             return "비밀번호"
         case .tel:
@@ -39,6 +39,7 @@ class JBTLoginTextField: UIView {
         $0.font = UIFont.pretendard(size: 14, weight: .regular)
         $0.isSecureTextEntry = false
         $0.keyboardType = .default
+        
     }
     
     let showPasswordButton = UIButton().then {

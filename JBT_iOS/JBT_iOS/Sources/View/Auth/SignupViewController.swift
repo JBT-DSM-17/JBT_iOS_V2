@@ -3,42 +3,39 @@ import SnapKit
 import Then
 
 
-class LoginViewController: UIViewController {
+class SignupViewController: UIViewController {
     
-    private let titleLabel = JBTLoginTitleLabel(text: "로그인")
+    private let titleLabel = JBTLoginTitleLabel(text: "회원가입")
     private let idInputTF = JBTLoginTextField(type: .id)
     private let pwInputTF = JBTLoginTextField(type: .pw)
-    private let suggestionView = JBTSuggestionView(message: "아직 가입하지 않았다면?", buttonTitle: "회원가입")
-    private let loginbutton = JBTLoginBottomButton()
-
+    private let suggestionView = JBTSuggestionView(message: "이미 가입했다면?", buttonTitle: "로그인하기")
+    private let nextbutton = JBTLoginBottomButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginbutton.buttonTitle = "다음"
+        [titleLabel, idInputTF, pwInputTF, suggestionView, nextbutton ].forEach { view.addSubview($0) }
         
-        loginbutton.addAction(UIAction { [weak self] _ in
+        nextbutton.buttonTitle = "다음"
+        
+        self.nextbutton.addAction(UIAction { _ in
             print("아니 지훈아 말 좀 들어")
-            
-            
-            
-            
-            
+            self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
         }, for: .touchUpInside)
-        
+            
+        self.view.backgroundColor = .white
         
         
         suggestionView.buttonTapped = {
-            print("Adfasdfadfs")
-            self.navigationController?.pushViewController(SignupViewController(), animated: true)
-            self.navigationController?.isNavigationBarHidden = true
+//            print("Adfasdfadfs")
+            self.navigationController?.popViewController(animated: true)
         }
         
-        view.backgroundColor = .white
-        layout()
+        
     }
-
-    func layout() {
-        [titleLabel, idInputTF, pwInputTF, suggestionView, loginbutton ].forEach { view.addSubview($0) }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(80.0)
@@ -66,11 +63,10 @@ class LoginViewController: UIViewController {
             $0.bottom.equalToSuperview().inset(144)
         }
         
-        loginbutton.snp.makeConstraints {
+        nextbutton.snp.makeConstraints {
             $0.top.equalTo(suggestionView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(52)
         }
     }
 }
-

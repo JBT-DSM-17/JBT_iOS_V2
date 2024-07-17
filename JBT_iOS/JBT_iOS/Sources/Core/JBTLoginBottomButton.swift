@@ -25,7 +25,11 @@ class JBTLoginBottomButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
     
-        self.backgroundColor = .green
+        self.backgroundColor = UIColor.green500
+        self.layer.cornerRadius = 8
+        
+    
+    
         
         addSubview(backView)
         
@@ -58,8 +62,6 @@ class JBTLoginBottomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-
 
 #Preview {
     let loginButton = JBTLoginBottomButton()
