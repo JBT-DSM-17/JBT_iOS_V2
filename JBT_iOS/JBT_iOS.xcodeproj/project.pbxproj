@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F9CF2F42C465BA3000F23CA /* SokchoBadaDotum.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */; };
+		3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */; };
+		3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F72C468CF5000F23CA /* BannerView.swift */; };
+		3FD87C1B2C4657D90036A733 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD87C1A2C4657D90036A733 /* MainViewController.swift */; };
+		3FD87C1E2C4658940036A733 /* SloganView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD87C1D2C4658940036A733 /* SloganView.swift */; };
 		6F63E23A2C46454200B821C6 /* JBTLoginBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */; };
 		6F63E23C2C465DCB00B821C6 /* JBTSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23B2C465DCB00B821C6 /* JBTSuggestionView.swift */; };
 		6F63E23E2C4679AD00B821C6 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23D2C4679AD00B821C6 /* SignupViewController.swift */; };
@@ -39,9 +44,19 @@
 		D15054D72C4641C6000E58A0 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D15054CE2C4641C6000E58A0 /* Pretendard-Light.otf */; };
 		D15054DA2C4642A6000E58A0 /* JBTLoginTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054D92C4642A6000E58A0 /* JBTLoginTitleLabel.swift */; };
 		D15054DC2C4646D7000E58A0 /* JBTLoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054DB2C4646D7000E58A0 /* JBTLoginTextField.swift */; };
+		D15054E02C466337000E58A0 /* MainCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054DF2C466337000E58A0 /* MainCategoryViewController.swift */; };
+		D15054E22C46640E000E58A0 /* MainCategoryNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E12C46640E000E58A0 /* MainCategoryNavigationBar.swift */; };
+		D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */; };
+		D15054E62C4682D1000E58A0 /* MainCategoryRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */; };
+		D15054E82C46887F000E58A0 /* MainPrizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E72C46887F000E58A0 /* MainPrizeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SokchoBadaDotum.otf; sourceTree = "<group>"; };
+		3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+addLeftImage.swift"; sourceTree = "<group>"; };
+		3F9CF2F72C468CF5000F23CA /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		3FD87C1A2C4657D90036A733 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3FD87C1D2C4658940036A733 /* SloganView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SloganView.swift; sourceTree = "<group>"; };
 		6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBTLoginBottomButton.swift; sourceTree = "<group>"; };
 		6F63E23B2C465DCB00B821C6 /* JBTSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBTSuggestionView.swift; sourceTree = "<group>"; };
 		6F63E23D2C4679AD00B821C6 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +84,11 @@
 		D15054CE2C4641C6000E58A0 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		D15054D92C4642A6000E58A0 /* JBTLoginTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBTLoginTitleLabel.swift; sourceTree = "<group>"; };
 		D15054DB2C4646D7000E58A0 /* JBTLoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBTLoginTextField.swift; sourceTree = "<group>"; };
+		D15054DF2C466337000E58A0 /* MainCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryViewController.swift; sourceTree = "<group>"; };
+		D15054E12C46640E000E58A0 /* MainCategoryNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryNavigationBar.swift; sourceTree = "<group>"; };
+		D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRegionCell.swift; sourceTree = "<group>"; };
+		D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRegionView.swift; sourceTree = "<group>"; };
+		D15054E72C46887F000E58A0 /* MainPrizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPrizeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +124,26 @@
 				6F63E2532C46BBB200B821C6 /* PaymentViewController.swift */,
 			);
 			path = Produce;
+			sourceTree = "<group>";
+		};
+		3FD87C192C4657CB0036A733 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D15054EA2C4741E8000E58A0 /* Category */,
+				3FD87C1C2C4658650036A733 /* Component */,
+				3FD87C1A2C4657D90036A733 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3FD87C1C2C4658650036A733 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				3FD87C1D2C4658940036A733 /* SloganView.swift */,
+				3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */,
+				3F9CF2F72C468CF5000F23CA /* BannerView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		D150548A2C463FA3000E58A0 = {
@@ -186,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				6F63E2522C46BB3700B821C6 /* Produce */,
+				3FD87C192C4657CB0036A733 /* Main */,
 				D15054C12C4640B3000E58A0 /* Auth */,
 			);
 			path = View;
@@ -221,6 +262,7 @@
 		D15054C52C4641B8000E58A0 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */,
 				D15054C82C4641C6000E58A0 /* Pretendard-Black.otf */,
 				D15054C92C4641C6000E58A0 /* Pretendard-Bold.otf */,
 				D15054CB2C4641C6000E58A0 /* Pretendard-ExtraBold.otf */,
@@ -232,6 +274,18 @@
 				D15054CA2C4641C6000E58A0 /* Pretendard-Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		D15054EA2C4741E8000E58A0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D15054DF2C466337000E58A0 /* MainCategoryViewController.swift */,
+				D15054E72C46887F000E58A0 /* MainPrizeCell.swift */,
+				D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */,
+				D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */,
+				D15054E12C46640E000E58A0 /* MainCategoryNavigationBar.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +372,7 @@
 				D15054D52C4641C6000E58A0 /* Pretendard-SemiBold.otf in Resources */,
 				D15054D62C4641C6000E58A0 /* Pretendard-Regular.otf in Resources */,
 				D15054D02C4641C6000E58A0 /* Pretendard-Medium.otf in Resources */,
+				3F9CF2F42C465BA3000F23CA /* SokchoBadaDotum.otf in Resources */,
 				D15054D12C4641C6000E58A0 /* Pretendard-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,15 +389,24 @@
 				6F63E23E2C4679AD00B821C6 /* SignupViewController.swift in Sources */,
 				6F63E23A2C46454200B821C6 /* JBTLoginBottomButton.swift in Sources */,
 				6F63E24F2C46B43400B821C6 /* AuthAPI.swift in Sources */,
+				D15054E82C46887F000E58A0 /* MainPrizeCell.swift in Sources */,
 				D15054B42C463FFF000E58A0 /* Header.swift in Sources */,
 				6F63E2512C46B43C00B821C6 /* AuthService.swift in Sources */,
 				6F63E2542C46BBB200B821C6 /* PaymentViewController.swift in Sources */,
 				D150549B2C463FA3000E58A0 /* LoginViewController.swift in Sources */,
 				6F63E2402C46882500B821C6 /* UserInfoViewController.swift in Sources */,
+				D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */,
+				D15054E62C4682D1000E58A0 /* MainCategoryRegionView.swift in Sources */,
 				D15054DC2C4646D7000E58A0 /* JBTLoginTextField.swift in Sources */,
+				3FD87C1E2C4658940036A733 /* SloganView.swift in Sources */,
+				D15054E02C466337000E58A0 /* MainCategoryViewController.swift in Sources */,
+				D15054E22C46640E000E58A0 /* MainCategoryNavigationBar.swift in Sources */,
 				D15054972C463FA3000E58A0 /* AppDelegate.swift in Sources */,
 				D15054C42C464193000E58A0 /* Resources.swift in Sources */,
+				3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */,
 				D15054992C463FA3000E58A0 /* SceneDelegate.swift in Sources */,
+				3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */,
+				3FD87C1B2C4657D90036A733 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
