@@ -44,7 +44,7 @@ extension MainPrizeCell {
         price: String
     ) {
         cellId = id
-        goodsImage.image = image
+//        goodsImage.image = image
         nameLabel.text = name
         regionLabel.text = region
         infoLabel.text = info

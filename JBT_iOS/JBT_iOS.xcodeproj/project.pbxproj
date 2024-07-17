@@ -51,9 +51,14 @@
 		D15054E22C46640E000E58A0 /* MainCategoryNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E12C46640E000E58A0 /* MainCategoryNavigationBar.swift */; };
 		D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E32C46775C000E58A0 /* MainCategoryRegionCell.swift */; };
 		D15054E62C4682D1000E58A0 /* MainCategoryRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E52C4682D1000E58A0 /* MainCategoryRegionView.swift */; };
-		D15054E82C46887F000E58A0 /* MainPrizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E72C46887F000E58A0 /* MainPrizeCell.swift */; };
 		D15054ED2C47424C000E58A0 /* MainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054EC2C47424C000E58A0 /* MainDetailViewController.swift */; };
 		D16114CE2C479A0B00117B22 /* GoodsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16114CD2C479A0B00117B22 /* GoodsAPI.swift */; };
+		D16114D12C47B17300117B22 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D16114D02C47B17300117B22 /* Moya */; };
+		D16114D32C47B17300117B22 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = D16114D22C47B17300117B22 /* RxMoya */; };
+		D1642E592C47B2EC00523CE4 /* JBTSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23B2C465DCB00B821C6 /* JBTSuggestionView.swift */; };
+		D1642E5A2C47B30900523CE4 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF3002C4703C4000F23CA /* CategoryCell.swift */; };
+		D1642E5B2C47B31800523CE4 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63E23D2C4679AD00B821C6 /* SignupViewController.swift */; };
+		D1642E5C2C47B93A00523CE4 /* MainPrizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15054E72C46887F000E58A0 /* MainPrizeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +116,8 @@
 				6F63E24A2C46B40700B821C6 /* (null) in Frameworks */,
 				3F9CF30D2C47AF28000F23CA /* RxDataSources in Frameworks */,
 				D15054BA2C464051000E58A0 /* Then in Frameworks */,
+				D16114D12C47B17300117B22 /* Moya in Frameworks */,
+				D16114D32C47B17300117B22 /* RxMoya in Frameworks */,
 				3F9CF3062C475269000F23CA /* (null) in Frameworks */,
 				6F63E24C2C46B40700B821C6 /* (null) in Frameworks */,
 				6F63E2452C46B2E400B821C6 /* (null) in Frameworks */,
@@ -231,10 +238,10 @@
 		D15054AE2C463FD4000E58A0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6F63E23B2C465DCB00B821C6 /* JBTSuggestionView.swift */,
 				D15054C32C464193000E58A0 /* Resources.swift */,
 				D15054D92C4642A6000E58A0 /* JBTLoginTitleLabel.swift */,
 				6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */,
-				6F63E23B2C465DCB00B821C6 /* JBTSuggestionView.swift */,
 				D15054DB2C4646D7000E58A0 /* JBTLoginTextField.swift */,
 			);
 			path = Core;
@@ -336,6 +343,8 @@
 				D15054BF2C4640A1000E58A0 /* SwiftKeychainWrapper */,
 				3F9CF30A2C47AF28000F23CA /* Differentiator */,
 				3F9CF30C2C47AF28000F23CA /* RxDataSources */,
+				D16114D02C47B17300117B22 /* Moya */,
+				D16114D22C47B17300117B22 /* RxMoya */,
 			);
 			productName = JBT_iOS;
 			productReference = D15054932C463FA3000E58A0 /* JBT_iOS.app */;
@@ -371,6 +380,7 @@
 				D15054BE2C4640A1000E58A0 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				3F9CF3092C47AF27000F23CA /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				3F9CF30E2C47AF33000F23CA /* XCRemoteSwiftPackageReference "RxSwift" */,
+				D16114CF2C47B17300117B22 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = D15054942C463FA3000E58A0 /* Products */;
 			projectDirPath = "";
@@ -411,14 +421,15 @@
 				D15054DA2C4642A6000E58A0 /* JBTLoginTitleLabel.swift in Sources */,
 				6F63E23A2C46454200B821C6 /* JBTLoginBottomButton.swift in Sources */,
 				6F63E24F2C46B43400B821C6 /* AuthAPI.swift in Sources */,
-				D15054E82C46887F000E58A0 /* MainPrizeCell.swift in Sources */,
 				3F9CF3082C47538D000F23CA /* MainSection.swift in Sources */,
 				D15054B42C463FFF000E58A0 /* Header.swift in Sources */,
 				6F63E2542C46BBB200B821C6 /* PaymentViewController.swift in Sources */,
 				D150549B2C463FA3000E58A0 /* LoginViewController.swift in Sources */,
 				6F63E2402C46882500B821C6 /* UserInfoViewController.swift in Sources */,
 				D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */,
+				D1642E5C2C47B93A00523CE4 /* MainPrizeCell.swift in Sources */,
 				D15054ED2C47424C000E58A0 /* MainDetailViewController.swift in Sources */,
+				D1642E592C47B2EC00523CE4 /* JBTSuggestionView.swift in Sources */,
 				D15054E62C4682D1000E58A0 /* MainCategoryRegionView.swift in Sources */,
 				D15054DC2C4646D7000E58A0 /* JBTLoginTextField.swift in Sources */,
 				3FD87C1E2C4658940036A733 /* SloganView.swift in Sources */,
@@ -429,7 +440,9 @@
 				D15054C42C464193000E58A0 /* Resources.swift in Sources */,
 				3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */,
 				3F9CF3032C471BB7000F23CA /* HeaderView.swift in Sources */,
+				D1642E5B2C47B31800523CE4 /* SignupViewController.swift in Sources */,
 				D15054992C463FA3000E58A0 /* SceneDelegate.swift in Sources */,
+				D1642E5A2C47B30900523CE4 /* CategoryCell.swift in Sources */,
 				3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */,
 				3FD87C1B2C4657D90036A733 /* MainViewController.swift in Sources */,
 				3F9CF2FA2C46FEED000F23CA /* MainViewModel.swift in Sources */,
@@ -689,6 +702,14 @@
 				minimumVersion = 4.0.1;
 			};
 		};
+		D16114CF2C47B17300117B22 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -716,6 +737,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D15054BE2C4640A1000E58A0 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
+		};
+		D16114D02C47B17300117B22 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D16114CF2C47B17300117B22 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		D16114D22C47B17300117B22 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D16114CF2C47B17300117B22 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

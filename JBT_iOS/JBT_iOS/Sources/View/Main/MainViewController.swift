@@ -1,10 +1,3 @@
-//
-//  MainViewController.swift
-//  JBT_iOS
-//
-//  Created by 강인혜 on 7/16/24.
-//
-
 import UIKit
 import SwiftUI
 import SnapKit
@@ -70,7 +63,7 @@ class MainViewController: UIViewController {
         $0.showsVerticalScrollIndicator = false
         $0.isScrollEnabled = true
     }
-
+    
     override func viewDidLoad() {
         view.backgroundColor = .white
         
@@ -137,18 +130,21 @@ class MainViewController: UIViewController {
         
         searchTextField.rx.text.orEmpty
             .subscribe(with: self, onNext: { owner, text in
-                owner.searchCV.isHidden = text.count < 1 ? true : false
-                let data = owner.viewModel.productsData.value[0].items
-                Observable.just(data.filter { $0.info.contains(text) })
+                searchCV.isHidden = text.count < 1 ? true : false
+//                let goods = dataSource.sectionModels[0].items[indexPath.row]
+
+                
+                let data = viewModel.productsData.value[0]
+                Observable.just(data.items.filter { $0.name.contains(text) })
                     .bind(to: searchResult)
-                    .disposed(by: owner.disposeBag)
+                    .disposed(by: disposeBag)
             }).disposed(by: disposeBag)
         
         searchResult.bind(to: searchCV.rx.items(
             cellIdentifier: "SearchCV",
             cellType: MainPrizeCell.self
         )) { idx, data, cell in
-            cell.setup(image: data.image, name: data.name, region: data.region, info: data.info, price: data.price)
+            cell.setup(id: data.items[idx].id, image: data.items[idx].picture, name: data.items[idx].name, region: data.items[idx].location, info: data.items[idx].description, price: "")
         }.disposed(by: disposeBag)
     }
     

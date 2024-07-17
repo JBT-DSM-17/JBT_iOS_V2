@@ -2,7 +2,6 @@ import UIKit
 import SnapKit
 import Then
 
-
 class JBTSuggestionView: UIView {
     
     public var buttonTapped: (() -> Void)?

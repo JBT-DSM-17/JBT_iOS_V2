@@ -2,9 +2,10 @@ import UIKit
 import SnapKit
 import Then
 import Foundation
+import RxDataSources
 
 struct GoodsModel: Codable {
-    let items: [Item]
+    var items: [Item]
 }
 
 struct Item: Codable {
@@ -18,6 +19,13 @@ struct Item: Codable {
         case id, name, price, location, picture
         case locationDetail = "location_detail"
         case description
+    }
+}
+
+extension GoodsModel: SectionModelType {
+    init(original: GoodsModel, items: [Item]) {
+        self = original
+        self.items = items
     }
 }
 
@@ -76,13 +84,11 @@ class MainCategoryViewController: UIViewController {
         
         categoryRegionView.categoryAllShow = {
             print("전체 해제 됨")
-            self.goodsData = self.goodsData2
             self.foodCollectionView.reloadData()
         }
         
         categoryRegionView.categorySelected = {
             print("\(self.category[$0]) 카테고리 클릭 됨")
-            self.goodsData = self.categoryData[$0]
             self.foodCollectionView.reloadData()
         }
     }
@@ -131,7 +137,7 @@ extension MainCategoryViewController: UICollectionViewDataSource {
         ) as? MainPrizeCell
         let model = goodsData.items[indexPath.row]
         print(model)
-        cell?.setup(id: model.id, image: model.picture, name: model.name, region: model.location, info: model.description, price: model.price)
+//        cell?.setup(id: model.id, image: model.picture, name: model.name, region: model.location, info: model.description, price: model.price)
         return cell ?? UICollectionViewCell()
     }
 }
