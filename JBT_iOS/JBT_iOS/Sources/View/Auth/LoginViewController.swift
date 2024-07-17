@@ -1,9 +1,21 @@
 import UIKit
 import SnapKit
 import Then
+import Moya
 
+struct AuthResponse: Codable {
+    let accessToken: String
+    let refreshToken: String
+    
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case refreshToken = "refresh_token"
+    }
+}
 
 class LoginViewController: UIViewController {
+
+    private let authProvider = MoyaProvider<AuthAPI>()
     
     private let titleLabel = JBTLoginTitleLabel(text: "로그인")
     private let idInputTF = JBTLoginTextField(type: .id)
@@ -11,38 +23,21 @@ class LoginViewController: UIViewController {
     private let suggestionView = JBTSuggestionView(message: "아직 가입하지 않았다면?", buttonTitle: "회원가입")
     private let loginbutton = JBTLoginBottomButton()
     
-//    let numberLabel = UILabel().then {
-//        $0.font = .pretendard(size: 18, weight: .semibold)
-//        $0.textAlignment = .right
-//        $0.text = "1/2"
-//    }
-//    
-
     let numberLabel = UILabel().then {
         $0.font = .pretendard(size: 18, weight: .semibold)
         $0.textAlignment = .right
     }
-
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-
-        // UILabel에 NSAttributedString 설정
-        
-        
         
         loginbutton.buttonTitle = "다음"
         
-        loginbutton.addAction(UIAction { [weak self] _ in
-            print("아니 지훈아 말 좀 들어")
+        loginbutton.addAction(UIAction { _ in
+            self.login()
         }, for: .touchUpInside)
         
-        
-        
         suggestionView.buttonTapped = {
-            print("Adfasdfadfs")
             self.navigationController?.pushViewController(SignupViewController(), animated: true)
             self.navigationController?.isNavigationBarHidden = true
         }
@@ -50,7 +45,31 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         layout()
     }
-
+    
+    func login() {
+        self.authProvider.request(.login(userId: self.idInputTF.currentText(), password: self.pwInputTF.currentText())) { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 200:
+                    if let data = try? JSONDecoder().decode(AuthResponse.self, from: result.data) {
+                        DispatchQueue.main.async {
+                            Token.accessToken = data.accessToken
+                            print(Token.accessToken)
+                            self.navigationController?.pushViewController(MainDetailViewController(), animated: true)
+                        }
+                    } else {
+                        print("auth json decode fail")
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        }
+    }
+    
     func layout() {
         [titleLabel, idInputTF, pwInputTF, suggestionView, loginbutton ].forEach { view.addSubview($0) }
         

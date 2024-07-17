@@ -106,4 +106,8 @@ class JBTLoginTextField: UIView {
         }
         iconClick = !iconClick
     }
+    
+    public func currentText() -> String {
+        return textField.text ?? ""
+    }
 }

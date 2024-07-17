@@ -21,7 +21,7 @@ class SignupViewController: UIViewController {
     
     @objc func nextButtonPressed(_ sender: UIButton) {
         print("아니 지훈아 말 좀 들어")
-        navigationController?.pushViewController(UserInfoViewController(), animated: true)
+        navigationController?.pushViewController(UserInfoViewController(id: idInputTF.currentText(), pw: pwInputTF.currentText()), animated: true)
     }
 
     
@@ -31,10 +31,6 @@ class SignupViewController: UIViewController {
         [titleLabel, idInputTF, pwInputTF, suggestionView, nextbutton, numberLabel2 ].forEach { view.addSubview($0) }
         
         nextbutton.buttonTitle = "다음"
-        
-        
-      
-
             
         self.view.backgroundColor = .white
         

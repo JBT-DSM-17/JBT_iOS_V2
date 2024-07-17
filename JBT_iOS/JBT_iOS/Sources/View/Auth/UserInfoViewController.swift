@@ -1,9 +1,14 @@
 import UIKit
 import SnapKit
 import Then
-
+import Moya
 
 class UserInfoViewController: UIViewController {
+    
+    private var authProvider = MoyaProvider<AuthAPI>()
+    
+    private var userId: String = ""
+    private var password: String = ""
     
     private let titleLabel = JBTLoginTitleLabel(text: "회원가입")
     private let idInputTF = JBTLoginTextField(type: .name)
@@ -16,42 +21,51 @@ class UserInfoViewController: UIViewController {
         $0.textAlignment = .right
     }
     
+    init (
+        id: String,
+        pw: String
+    ) {
+        super.init(nibName: nil, bundle: nil)
+        userId = id
+        password = pw
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {}
-    
-    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.backgroundColor = .white
         
+        attribute()
+        layout()
+    }
+    
+    private func attribute() {
         suggestionView.buttonTapped = {
-//            print("Adfasdfadfs")
             self.navigationController?.popToRootViewController(animated: true)
         }
-//        var attributedString = NSMutableAttributedString(string: "2/2")
-//        attributedString.addAttribute(.foregroundColor, value: UIColor.green500, range: NSRange(location: 0, length: 1))
-//        numberLabel3.textAlignment = .right
-//        // UILabel에 NSAttributedString 설정
-//        numberLabel3.attributedText = attributedString
-//        
-        let numberLabel3 = UILabel().then {
-
-            
-            $0.font = .pretendard(size: 18, weight: .semibold)
-        }
-        // UILabel의 너비 설정
-        numberLabel3.widthAnchor.constraint(equalToConstant: 1000).isActive = true // 적절한 너비 설정
-
-        // NSAttributedString 생성
-        var attributedString = NSMutableAttributedString(string: "2/2")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.green500, range: NSRange(location: 0, length: 1))
-
-        // UILabel 설정
-        numberLabel3.textAlignment = .right
-        numberLabel3.attributedText = attributedString
         
         signUpButton.buttonTitle = "회원가입"
         
+        signUpButton.addTarget(self, action: #selector(signButtonTapped), for: .touchUpInside)
+        
+        let numberLabel3 = UILabel().then {
+            $0.font = .pretendard(size: 18, weight: .semibold)
+        }
+        numberLabel3.widthAnchor.constraint(equalToConstant: 1000).isActive = true
+        
+        var attributedString = NSMutableAttributedString(string: "2/2")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.green500, range: NSRange(location: 0, length: 1))
+        
+        numberLabel3.textAlignment = .right
+        numberLabel3.attributedText = attributedString
+    }
+    
+    private func layout() {
         [
             titleLabel,
             idInputTF,
@@ -60,7 +74,6 @@ class UserInfoViewController: UIViewController {
             signUpButton,
             numberLabel3
         ].forEach { view.addSubview($0) }
-        
         
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(80.0)
@@ -93,6 +106,7 @@ class UserInfoViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(52)
         }
+
         numberLabel3.snp.makeConstraints {
             $0.top.equalToSuperview().inset(57.5)
             $0.right.equalToSuperview().inset(24)
@@ -101,5 +115,45 @@ class UserInfoViewController: UIViewController {
             $0.width.equalTo(1000)
         }
     }
+
+    private func signupLogin() {
+        self.authProvider.request(.login(userId: self.userId, password: self.password)) { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 200:
+                    if let data = try? JSONDecoder().decode(AuthResponse.self, from: result.data) {
+                        DispatchQueue.main.async {
+                            Token.accessToken = data.accessToken
+                            print("accessToken : \(String(describing: Token.accessToken))")
+                            self.navigationController?.pushViewController(MainDetailViewController(), animated: true)
+                        }
+                    } else {
+                        print("auth json decode fail")
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        }
+    }
     
+    @objc func signButtonTapped() {
+        self.authProvider.request(.signup(userId: self.userId, nickname: self.idInputTF.currentText(), phone: self.pwInputTF.currentText(), password: self.password)) { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 200:
+                    print("회원가입 성공")
+                    self.signupLogin()
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        }
+    }
 }
