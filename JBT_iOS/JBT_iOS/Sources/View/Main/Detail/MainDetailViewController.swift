@@ -1,10 +1,9 @@
 import UIKit
-
 import SnapKit
 import Then
 
 class MainDetailViewController: UIViewController {
-
+    
     let naviBar = MainCategoryNavigationBar()
     
     private let scrollView = UIScrollView().then {
@@ -54,7 +53,7 @@ class MainDetailViewController: UIViewController {
     let infoLabel = UILabel().then {
         $0.numberOfLines = 0
         $0.textColor = UIColor.gray700
-        $0.text = "개쩌는 포케 10어ㅜ 정말 마있는 초케ㄹ먹어"
+        $0.text = "전라남도 유기농 샐러드 세트"
         $0.lineBreakMode = .byCharWrapping
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
     }
@@ -127,7 +126,7 @@ class MainDetailViewController: UIViewController {
     }
     
     let detailImageView = UIImageView().then {
-        $0.image = UIImage(named: "detailFoodDummy")
+        $0.image = UIImage(named: "detailInfoDummyImage")
     }
     
     let lineView4 = UIView().then {
@@ -141,7 +140,7 @@ class MainDetailViewController: UIViewController {
         $0.text = "판매자 소개"
         $0.textAlignment = .left
     }
-   
+    
     let sellerInfoLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 14, weight: .medium)
         $0.textColor = .black
@@ -172,12 +171,20 @@ class MainDetailViewController: UIViewController {
     }
     
     let buyButton = JBTLoginBottomButton()
-
+    
+    private var detailImageViewHeightConstraint: Constraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         attribute()
         layout()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateDetailImageViewHeight()
+        updateScrollViewContentSize()
     }
     
     func attribute() {
@@ -194,6 +201,12 @@ class MainDetailViewController: UIViewController {
         
         naviBar.setTitle("")
         naviBar.setLeftButtonImage(image: UIImage(systemName: "arrow.left")!)
+        
+        buyButton.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func buyButtonTapped() {
+        self.navigationController?.pushViewController(PaymentViewController(informationText: infoLabel.text!, numberText: "4개", moneyText: "11,500원", dayText: "2024-07-17  11:57", howText: "신용카드"), animated: true)
     }
     
     func layout() {
@@ -254,7 +267,7 @@ class MainDetailViewController: UIViewController {
             $0.top.width.centerX.equalToSuperview()
             $0.height.equalTo(20.0)
         }
-
+        
         infoLabel.snp.makeConstraints {
             $0.top.equalTo(regionLabel.snp.bottom).offset(16.0)
             $0.width.centerX.equalToSuperview()
@@ -331,7 +344,6 @@ class MainDetailViewController: UIViewController {
         stackView3.snp.makeConstraints {
             $0.top.equalTo(regionStackView.snp.bottom).offset(20.0)
             $0.width.centerX.equalToSuperview()
-            $0.height.equalTo(799)
         }
         
         detailImageView.snp.makeConstraints {
@@ -393,6 +405,22 @@ class MainDetailViewController: UIViewController {
             $0.height.equalTo(52.0)
         }
         
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 755 + 799 + 101.0 + 24 + 60)
+        detailImageView.snp.makeConstraints { make in
+            detailImageViewHeightConstraint = make.height.equalTo(382).constraint
+        }
+    }
+    
+    private func updateDetailImageViewHeight() {
+        guard let image = detailImageView.image else { return }
+        let aspectRatio = image.size.height / image.size.width
+        let width = view.frame.width - 48
+        let height = width * aspectRatio
+        
+        detailImageViewHeightConstraint?.update(offset: height)
+    }
+    
+    private func updateScrollViewContentSize() {
+        let totalHeight = 430 + 16 + 20 + 127 + 20 + detailImageView.frame.height + 24 + 101 + 24 + 96 + 120
+        scrollView.contentSize = CGSize(width: view.frame.width, height: totalHeight)
     }
 }
