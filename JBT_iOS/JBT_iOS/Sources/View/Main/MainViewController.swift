@@ -117,35 +117,37 @@ class MainViewController: UIViewController {
     }
     
     func bind() {
-        let searchResult = PublishRelay<[GoodsModel]>()
+        let searchResult = PublishRelay<[Item]>()
         
         viewModel.productsData
             .bind(to: entireCV.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: disposeBag)
         
         entireCV.rx.itemSelected
-            .subscribe(onNext: { indexPath in
-                print(indexPath)
+            .subscribe(onNext: { idxPath in
+                print(idxPath)
             }).disposed(by: disposeBag)
         
         searchTextField.rx.text.orEmpty
             .subscribe(with: self, onNext: { owner, text in
-                searchCV.isHidden = text.count < 1 ? true : false
-//                let goods = dataSource.sectionModels[0].items[indexPath.row]
-
-                
-                let data = viewModel.productsData.value[0]
-                Observable.just(data.items.filter { $0.name.contains(text) })
+                owner.searchCV.isHidden = text.count < 1 ? true : false
+                let data = owner.viewModel.productsData.value[0].items
+                Observable.just(data.filter { $0.description.contains(text) })
                     .bind(to: searchResult)
-                    .disposed(by: disposeBag)
+                    .disposed(by: owner.disposeBag)
             }).disposed(by: disposeBag)
         
         searchResult.bind(to: searchCV.rx.items(
             cellIdentifier: "SearchCV",
             cellType: MainPrizeCell.self
         )) { idx, data, cell in
-            cell.setup(id: data.items[idx].id, image: data.items[idx].picture, name: data.items[idx].name, region: data.items[idx].location, info: data.items[idx].description, price: "")
+            cell.setup(id: data.id, image: "", name: data.name, region: data.location, info: data.description, price: "15,600")
         }.disposed(by: disposeBag)
+        
+        searchCV.rx.itemSelected
+            .subscribe(onNext: { idxPath in
+                print(idxPath)
+            }).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
