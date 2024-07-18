@@ -129,7 +129,9 @@ class UserInfoViewController: UIViewController {
                         DispatchQueue.main.async {
                             Token.accessToken = data.accessToken
                             print("accessToken : \(String(describing: Token.accessToken))")
-                            self.navigationController?.pushViewController(MainViewController(), animated: true)
+                            let mainViewController = MainViewController()
+                            let navigationController = self.navigationController
+                            navigationController?.setViewControllers([mainViewController], animated: true)
                         }
                     } else {
                         print("auth json decode fail")
