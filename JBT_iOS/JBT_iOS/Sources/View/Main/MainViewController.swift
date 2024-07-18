@@ -82,6 +82,7 @@ class MainViewController: UIViewController {
         ].forEach { view.addSubview($0) }
         
         bind()
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewDidLayoutSubviews() {

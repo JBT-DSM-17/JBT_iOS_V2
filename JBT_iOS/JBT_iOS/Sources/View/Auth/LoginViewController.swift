@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
         loginbutton.buttonTitle = "다음"
         
         loginbutton.addAction(UIAction { _ in

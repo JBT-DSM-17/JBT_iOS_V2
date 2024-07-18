@@ -11,6 +11,7 @@
 		3F05B2582C482D8D0074D6F7 /* SelectedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05B2572C482D8D0074D6F7 /* SelectedPhotoView.swift */; };
 		3F05B25A2C4848780074D6F7 /* NewGoodsRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05B2592C4848780074D6F7 /* NewGoodsRequestDTO.swift */; };
 		3F05B25C2C488A920074D6F7 /* MoyaPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F05B25B2C488A920074D6F7 /* MoyaPlugin.swift */; };
+		3F6400F82C489C1200036167 /* HIdeKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6400F72C489C1200036167 /* HIdeKeyboard.swift */; };
 		3F9CF2F42C465BA3000F23CA /* SokchoBadaDotum.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */; };
 		3F9CF2F62C467FD2000F23CA /* UITextField+addLeftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */; };
 		3F9CF2F82C468CF5000F23CA /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF2F72C468CF5000F23CA /* BannerView.swift */; };
@@ -71,6 +72,7 @@
 		3F05B2572C482D8D0074D6F7 /* SelectedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPhotoView.swift; sourceTree = "<group>"; };
 		3F05B2592C4848780074D6F7 /* NewGoodsRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoodsRequestDTO.swift; sourceTree = "<group>"; };
 		3F05B25B2C488A920074D6F7 /* MoyaPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPlugin.swift; sourceTree = "<group>"; };
+		3F6400F72C489C1200036167 /* HIdeKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIdeKeyboard.swift; sourceTree = "<group>"; };
 		3F9CF2F32C465BA3000F23CA /* SokchoBadaDotum.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SokchoBadaDotum.otf; sourceTree = "<group>"; };
 		3F9CF2F52C467FD2000F23CA /* UITextField+addLeftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+addLeftImage.swift"; sourceTree = "<group>"; };
 		3F9CF2F72C468CF5000F23CA /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				6F63E2392C46454200B821C6 /* JBTLoginBottomButton.swift */,
 				D15054DB2C4646D7000E58A0 /* JBTLoginTextField.swift */,
 				3F05B25B2C488A920074D6F7 /* MoyaPlugin.swift */,
+				3F6400F72C489C1200036167 /* HIdeKeyboard.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				6F63E2402C46882500B821C6 /* UserInfoViewController.swift in Sources */,
 				D15054E42C46775D000E58A0 /* MainCategoryRegionCell.swift in Sources */,
 				D1642E5C2C47B93A00523CE4 /* MainPrizeCell.swift in Sources */,
+				3F6400F82C489C1200036167 /* HIdeKeyboard.swift in Sources */,
 				D15054ED2C47424C000E58A0 /* MainDetailViewController.swift in Sources */,
 				D1642E592C47B2EC00523CE4 /* JBTSuggestionView.swift in Sources */,
 				3FCC918D2C47EDF700C4C0BD /* NewGoodsViewController.swift in Sources */,

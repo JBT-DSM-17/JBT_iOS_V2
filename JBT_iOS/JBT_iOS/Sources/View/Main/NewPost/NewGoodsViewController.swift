@@ -138,6 +138,7 @@ class NewGoodsViewController: UIViewController {
         selectedPhotoView.isHidden = true
         
         bind()
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewDidLayoutSubviews() {
