@@ -108,7 +108,7 @@ class MainViewController: UIViewController {
         }
         plusButton.snp.makeConstraints {
             $0.width.height.equalTo(60)
-            $0.right.equalToSuperview().inset(10)
+            $0.right.equalToSuperview().inset(14)
             $0.bottom.equalToSuperview().inset(20)
         }
     
@@ -161,6 +161,11 @@ class MainViewController: UIViewController {
         searchCV.rx.itemSelected
             .subscribe(onNext: { idxPath in
                 self.navigationController?.pushViewController(MainDetailViewController(id: self.searchId[idxPath[1]]), animated: true)
+            }).disposed(by: disposeBag)
+        
+        plusButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                self.navigationController?.pushViewController(NewGoodsViewController(), animated: true)
             }).disposed(by: disposeBag)
     }
     

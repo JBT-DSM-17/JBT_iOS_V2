@@ -19,7 +19,7 @@ struct Token {
 }
 
 enum Header {
-    case accessToken, tokenIsEmpty
+    case accessToken, tokenIsEmpty, multipartForm
     func header() -> [String: String]? {
         guard let token = Token.accessToken,
             token != "nil" else {
@@ -30,6 +30,8 @@ enum Header {
             return ["Authorization": token, "Content-Type": "application/json"]
         case .tokenIsEmpty:
             return ["Content-Type": "application/json"]
+        case .multipartForm:
+            return ["Authorization": token, "Content-Type": "multipart/form-data"]
         }
     }
 }

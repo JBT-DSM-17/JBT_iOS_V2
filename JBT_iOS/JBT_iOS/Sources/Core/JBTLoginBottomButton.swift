@@ -31,9 +31,6 @@ class JBTLoginBottomButton: UIButton {
         self.backgroundColor = UIColor.green500
         self.layer.cornerRadius = 8
         
-    
-    
-        
         addSubview(backView)
         
         [

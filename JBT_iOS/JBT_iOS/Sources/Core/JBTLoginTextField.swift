@@ -7,6 +7,7 @@ enum TFType {
     case name
     case pw
     case tel
+    case custom(title: String, placeholder: String)
     
     var text: String {
         switch self {
@@ -18,6 +19,8 @@ enum TFType {
             return "비밀번호"
         case .tel:
             return "전화번호"
+        case .custom(let title, let placeholder):
+            return title + "," + placeholder
         }
     }
 }
@@ -65,6 +68,10 @@ class JBTLoginTextField: UIView {
             textField.rightViewMode = .always
         case .tel:
             textField.keyboardType = .numberPad
+        case .custom:
+            let texts = type.text.components(separatedBy: ",")
+            titleLabel.text = texts[0]
+            textField.attributedPlaceholder = NSAttributedString(string: texts[1], attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray200])
         }
         
         
