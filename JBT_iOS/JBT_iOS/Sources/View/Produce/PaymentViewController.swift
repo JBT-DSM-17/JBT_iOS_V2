@@ -19,43 +19,48 @@ class PaymentViewController: UIViewController {
         $0.image = UIImage(systemName: "checkmark.circle.fill")
         $0.tintColor = .green500
     }
+
     private let finishPaymentsLabel = UILabel().then {
         $0.text = "결제가 완료되었습니다!"
         $0.textColor = .green500
         $0.font = .pretendard(size: 24, weight: .semibold)
     }
+
     private let buyInfoLabel = UILabel().then {
         $0.text = "구매 정보"
         $0.textColor = .black
         $0.font = .pretendard(size: 16, weight: .semibold)
     }
+
     private let buyManyLabel = UILabel().then {
         $0.text = "구매 수량"
         $0.textColor = .black
         $0.font = .pretendard(size: 16, weight: .semibold)
     }
+
     private let buyMuchLabel = UILabel().then {
         $0.text = "구매 금액"
         $0.textColor = .black
         $0.font = .pretendard(size: 16, weight: .semibold)
     }
+
     private let buyDateLabel = UILabel().then {
         $0.text = "구매 일시"
         $0.textColor = .black
         $0.font = .pretendard(size: 16, weight: .semibold)
     }
+
     private let buyHowLabel = UILabel().then {
         $0.text = "결제 수단"
         $0.textColor = .black
         $0.font = .pretendard(size: 16, weight: .semibold)
     }
+
     private let lineImageView = UIImageView().then {
         $0.image = .line4
     }
-    
+
     private let loginbutton = JBTLoginBottomButton()
-    
-    
     
     let informationlabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
@@ -63,13 +68,11 @@ class PaymentViewController: UIViewController {
         $0.textColor = UIColor.gray600
     }
     
-    
     let numberLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textAlignment = .right
         $0.textColor = UIColor.gray600
     }
-    
     
     let moneyLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
@@ -77,15 +80,11 @@ class PaymentViewController: UIViewController {
         $0.textColor = UIColor.gray600
     }
     
-    
-    
     let dayLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
         $0.textAlignment = .right
         $0.textColor = UIColor.gray600
     }
-    
-    
     
     let howLabel = UILabel().then {
         $0.font = .pretendard(size: 14, weight: .medium)
@@ -123,6 +122,11 @@ class PaymentViewController: UIViewController {
             print("Left button tapped")
             self.navigationController?.popViewController(animated: true)
         }
+        
+        self.loginbutton.addAction(UIAction { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }, for: .touchUpInside)
         
         naviBar.setTitle("")
         naviBar.setLeftButtonImage(image: UIImage(systemName: "arrow.left")!)
@@ -164,7 +168,6 @@ class PaymentViewController: UIViewController {
             $0.bottom.equalToSuperview().inset(364)
         }
         
-        
         backView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.left.right.equalToSuperview()
@@ -178,7 +181,6 @@ class PaymentViewController: UIViewController {
             $0.width.height.equalTo(80)
         }
         
-        
         finishPaymentsLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(104)
             $0.bottom.equalToSuperview().inset(619)
@@ -188,10 +190,6 @@ class PaymentViewController: UIViewController {
         }
         
         buyInfoLabel.snp.makeConstraints {
-            //            $0.top.equalTo(receiptBackView.snp.bottom).offset(225)
-            //            $0.left.equalTo(receiptBackView.snp.right).offset(16)
-            //            $0.bottom.equalTo(receiptBackView.snp.top).offset(180)
-            //            $0.right.equalTo(receiptBackView.snp.left).offset(306)
             $0.bottom.equalToSuperview().inset(544)
             $0.top.equalToSuperview().inset(369)
             $0.left.equalToSuperview().inset(40)
@@ -269,9 +267,5 @@ class PaymentViewController: UIViewController {
             $0.left.equalToSuperview().inset(152)
             $0.bottom.equalToSuperview().inset(405)
         }
-        
-        self.loginbutton.addAction(UIAction { _ in
-            print("아니 지훈아 말 좀 들어")
-        }, for: .touchUpInside)
     }
 }

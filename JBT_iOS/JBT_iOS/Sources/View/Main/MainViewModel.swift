@@ -21,12 +21,17 @@ class MainViewModel {
         return cell
     }, configureSupplementaryView: { dataSource, collectionView, kind, indexPath -> UICollectionReusableView in
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView", for: indexPath) as? HeaderView ?? .init()
-        header.isUserInteractionEnabled = true
-        header.selectedCategory
-            .bind(to: self.selectedCategory)
-            .disposed(by: self.disposeBag)
+        if !header.isConfigured {
+            header.isUserInteractionEnabled = true
+            header.selectedCategory
+                .bind(to: self.selectedCategory)
+                .disposed(by: self.disposeBag)
+            print("Header 흠 : \(header)")
+            header.configure()
+        }
         return header
     })
+
     
     func getAllproductData() {
         provider.request(.goodsCategory(category: nil, location: nil, isBad: false), completion: { res in

@@ -20,12 +20,10 @@ struct GoodsDetailModel: Codable {
     }
 }
 
-
 struct Seller: Codable {
     let nickname: String
     let introduce: String?
 }
-
 
 class MainDetailViewController: UIViewController {
     
@@ -37,12 +35,13 @@ class MainDetailViewController: UIViewController {
         $0.showsVerticalScrollIndicator = false
         $0.showsHorizontalScrollIndicator = false
     }
+
     private let stackView1 = UIStackView().then {
         $0.axis = .vertical
     }
     
     private var mainImageView = UIImageView().then {
-        $0.image = UIImage(named: "detailFoodDummy")
+        $0.backgroundColor = UIColor.gray50
     }
     
     private let stackView2 = UIStackView().then {
@@ -65,7 +64,6 @@ class MainDetailViewController: UIViewController {
     
     var nameLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 16, weight: .semibold)
-        $0.text = "이태영"
         $0.textAlignment = .left
         $0.textColor = UIColor.gray600
     }
@@ -73,20 +71,17 @@ class MainDetailViewController: UIViewController {
     let regionLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 16, weight: .semibold)
         $0.textColor = UIColor.green500
-        $0.text = "전라남도"
         $0.textAlignment = .right
     }
     
     let infoLabel = UILabel().then {
         $0.numberOfLines = 0
         $0.textColor = UIColor.gray700
-        $0.text = "전라남도 유기농 샐러드 세트"
         $0.lineBreakMode = .byCharWrapping
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
     }
     
     let infoLabel2 = UILabel().then {
-        $0.text = "타 플랫폼 최저가 16,000원"
         $0.textColor = UIColor.gray300
         $0.lineBreakMode = .byCharWrapping
         $0.font = UIFont.pretendard(size: 16, weight: .semibold)
@@ -94,7 +89,6 @@ class MainDetailViewController: UIViewController {
     
     let priceLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 32, weight: .semibold)
-        $0.text = "11,500원"
         $0.textColor = UIColor.green700
     }
     
@@ -105,7 +99,6 @@ class MainDetailViewController: UIViewController {
     
     let originLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 14, weight: .semibold)
-        $0.text = "원산지"
         $0.textAlignment = .left
         $0.textColor = UIColor.black
     }
@@ -113,7 +106,6 @@ class MainDetailViewController: UIViewController {
     let realRegionLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 14, weight: .semibold)
         $0.textColor = UIColor.black
-        $0.text = "전라남도 나주"
         $0.textAlignment = .right
     }
     
@@ -124,7 +116,6 @@ class MainDetailViewController: UIViewController {
     
     let deliveryInfoLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 14, weight: .semibold)
-        $0.text = "배송정보"
         $0.textAlignment = .left
         $0.textColor = UIColor.black
     }
@@ -132,7 +123,6 @@ class MainDetailViewController: UIViewController {
     let deliveryRegionLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 14, weight: .semibold)
         $0.textColor = UIColor.black
-        $0.text = "무료배송"
         $0.textAlignment = .right
     }
     
@@ -144,7 +134,6 @@ class MainDetailViewController: UIViewController {
     let detailInfoTitleLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 18, weight: .semibold)
         $0.textColor = UIColor.black
-        $0.text = "상세정보"
         $0.textAlignment = .left
     }
     
@@ -153,7 +142,7 @@ class MainDetailViewController: UIViewController {
     }
     
     let detailImageView = UIImageView().then {
-        $0.image = UIImage(named: "detailInfoDummyImage")
+        $0.backgroundColor = UIColor.gray50
     }
     
     let lineView4 = UIView().then {
@@ -164,21 +153,18 @@ class MainDetailViewController: UIViewController {
     let introduceTitleLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 10, weight: .medium)
         $0.textColor = UIColor.gray500
-        $0.text = "판매자 소개"
         $0.textAlignment = .left
     }
     
     let sellerInfoLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 14, weight: .medium)
         $0.textColor = .black
-        $0.text = "이태영 전라남도"
         $0.textAlignment = .left
     }
     
     let sellerInfoTextLabel = UILabel().then {
         $0.numberOfLines = 0
         $0.textColor = UIColor.gray400
-        $0.text = "안ㄴ여하세요ㅑ러ㅑ루ㅜ러ㅐㅜ라ㅓ 즐거운 폰케 먹으성-ㅗㅜㅞㅓㅔㅜ 안ㄴ여하세요ㅑ러ㅑ루ㅜ러ㅐㅜ라ㅓ 즐거운 폰케 먹으성-ㅗㅜㅞㅓㅔㅜ"
         $0.lineBreakMode = .byCharWrapping
         $0.font = UIFont.pretendard(size: 12, weight: .medium)
     }
@@ -247,7 +233,7 @@ class MainDetailViewController: UIViewController {
     }
     
     @objc func buyButtonTapped() {
-        self.navigationController?.pushViewController(PaymentViewController(informationText: infoLabel.text!, numberText: "4개", moneyText: "11,500원", dayText: "2024-07-17  11:57", howText: "신용카드"), animated: true)
+        self.navigationController?.pushViewController(PaymentViewController(informationText: infoLabel.text!, numberText: "4개", moneyText: priceLabel.text!, dayText: "2024-07-17  11:57", howText: "신용카드"), animated: true)
     }
     
     func getDetailData(id: Int) {
@@ -263,15 +249,20 @@ class MainDetailViewController: UIViewController {
                     self.nameLabel.text = data.seller.nickname
                     self.regionLabel.text = data.location
                     self.infoLabel.text = data.name
-                    
                     let numberFormatter = NumberFormatter()
                     numberFormatter.numberStyle = .decimal
                     let formattedPrice = numberFormatter.string(from: NSNumber(value: data.otherPrice)) ?? "\(data.otherPrice)"
                     self.infoLabel2.text = "타 플랫폼 최저가 \(formattedPrice)원"
                     let formattedPrice1 = numberFormatter.string(from: NSNumber(value: data.price)) ?? "\(data.price)"
                     self.priceLabel.text = "\(formattedPrice1)원"
+                    self.originLabel.text = "원산지"
+                    self.deliveryInfoLabel.text = "배송정보"
+                    self.deliveryRegionLabel.text = "무료배송"
                     self.realRegionLabel.text = data.locationDetail
                     self.sellerInfoLabel.text = "\(data.seller.nickname) \(data.location)"
+                    self.detailInfoTitleLabel.text = "상세정보"
+                    let detailImage = URL(string: data.detail)
+                    self.detailImageView.imageFrom(url: (detailImage ?? defaultImage)!)
                     self.sellerInfoTextLabel.text = data.seller.introduce
                     
                 } else {
@@ -493,12 +484,12 @@ class MainDetailViewController: UIViewController {
         let aspectRatio = image.size.height / image.size.width
         let width = view.frame.width - 48
         let height = width * aspectRatio
-        
+                
         detailImageViewHeightConstraint?.update(offset: height)
     }
     
     private func updateScrollViewContentSize() {
-        let totalHeight = 430 + 16 + 20 + 127 + 20 + detailImageView.frame.height + 24 + 101 + 24 + 96 + 120
+        let totalHeight: Double = 430 + 16 + 20 + 127 + 20 + 1580 + 24 + 101 + 24 + 96 + 120
         scrollView.contentSize = CGSize(width: view.frame.width, height: totalHeight)
     }
 }

@@ -110,7 +110,6 @@ class MainCategoryViewController: UIViewController {
         categoryRegionView.categorySelected = {
             print("\($0) 카테고리 클릭 됨")
             self.getCategoryData(categories: $0)
-            self.foodCollectionView.reloadData()
         }
     }
     
@@ -158,14 +157,15 @@ class MainCategoryViewController: UIViewController {
     
     func getCategoryData(categories: [String]) {
         let isBad = categories.contains("못난이")
-        provider.request(.goodsCategory(category: pageCategory, location: categories, isBad: isBad), completion: { res in
+        let filteredCategories = categories.filter { $0 != "못난이" }
+        provider.request(.goodsCategory(category: pageCategory, location: filteredCategories, isBad: isBad), completion: { res in
             switch res {
             case .success(let result):
                 switch result.statusCode {
                 case 200:
                     if let data = try? JSONDecoder().decode(GoodsModel.self, from: result.data) {
-                        self.goodsData = data
-                        self.foodCollectionView.reloadData()
+                            self.goodsData = data
+                            self.foodCollectionView.reloadData()
                     } else {
                         print("goods json decode fail")
                     }

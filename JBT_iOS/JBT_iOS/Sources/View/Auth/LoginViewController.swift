@@ -14,7 +14,7 @@ struct AuthResponse: Codable {
 }
 
 class LoginViewController: UIViewController {
-
+    
     private let authProvider = MoyaProvider<AuthAPI>()
     
     private let titleLabel = JBTLoginTitleLabel(text: "로그인")
@@ -56,7 +56,9 @@ class LoginViewController: UIViewController {
                         DispatchQueue.main.async {
                             Token.accessToken = data.accessToken
                             print(Token.accessToken)
-                            self.navigationController?.pushViewController(MainViewController(), animated: true)
+                            let mainViewController = MainViewController()
+                            let navigationController = self.navigationController
+                            navigationController?.setViewControllers([mainViewController], animated: true)
                         }
                     } else {
                         print("auth json decode fail")
